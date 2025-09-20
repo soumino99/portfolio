@@ -2,101 +2,130 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>ポートフォリオ | 箕川 創太</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="東京理科大学 情報工学科3年 箕川創太のポートフォリオ">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>ポートフォリオ | Sota</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root{--fg:#111;--bg:#fff;--muted:#666;--link:#0b63ce;--card:#f6f7f9;}
-    *{box-sizing:border-box} body{margin:0;color:var(--fg);background:var(--bg);font:16px/1.7 system-ui,Segoe UI,Roboto,"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif}
-    header,main,footer{max-width:900px;margin:auto;padding:24px}
-    header{padding-top:40px}
-    h1{margin:0 0 8px;font-size:28px} h2{margin:32px 0 12px;font-size:22px}
-    p,li{margin:6px 0} small{color:var(--muted)}
-    .grid{display:grid;gap:16px}
-    @media(min-width:800px){.grid{grid-template-columns:1.2fr 2fr}}
-    .card{background:var(--card);padding:16px;border-radius:10px}
-    .work{display:grid;gap:8px}
-    .work img{width:100%;height:auto;border-radius:8px;border:1px solid #e5e7eb}
-    .tag{display:inline-block;padding:2px 8px;border:1px solid #cbd5e1;border-radius:999px;font-size:12px;margin-right:6px}
-    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
-    .list li{margin-bottom:6px}
+    :root { color-scheme: light dark; }
+    body{font-family: system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Yu Gothic UI","Noto Sans CJK JP",sans-serif;line-height:1.8;margin:40px auto;max-width:900px;padding:0 20px}
+    h1{font-size:2.2rem;margin:0 0 .5em}
+    h2{margin:2.0em 0 .6em;color:#222;border-bottom:2px solid #e5e5e5;padding-bottom:.3em}
+    h3{margin:1.6em 0 .4em;color:#333}
+    p{margin:.6em 0}
+    ul,ol{margin:.4em 0 .8em 1.4em}
+    li{margin:.3em 0}
+    small,figcaption{color:#666}
+    img{max-width:100%;height:auto;border-radius:8px}
+    .stack{background:#f8f9fa;border:1px solid #eee;border-radius:8px;padding:10px 14px;margin:.6em 0}
+    .section{scroll-margin-top:84px}
+    nav{position:sticky;top:0;background:color-mix(in oklab, white 92%, transparent);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #eee;margin:-40px auto 24px;max-width:900px;padding:10px 20px}
+    nav a{margin-right:12px;text-decoration:none;color:#0b57d0}
+    @media (prefers-color-scheme: dark){
+      body{color:#eaeaea;background:#0b0b0b}
+      h2{border-color:#333}
+      .stack{background:#111;border-color:#222}
+      nav{background:rgba(16,16,16,.7);border-color:#222}
+      nav a{color:#8ab4f8}
+      small,figcaption{color:#aaa}
+    }
   </style>
 </head>
 <body>
-<header class="grid">
-  <div>
-    <h1>箕川 創太 / Sota Minokawa</h1>
-    <p>東京理科大学 工学部 情報工学科3年</p>
-    <p><a href="https://SotaMMM.github.io/portfolio/">SotaMMM.github.io/portfolio</a></p>
-    <small>連絡先やGitHub等は後で追記</small>
-  </div>
-  <div><img src="assets/profile.jpg" alt="プロフィール写真" style="width:220px;border-radius:12px;border:1px solid #e5e7eb"></div>
-</header>
+  <nav>
+    <a href="#bio">略歴</a>
+    <a href="#intern">インターン歴</a>
+    <a href="#interest">興味関心</a>
+    <a href="#works">成果物</a>
+  </nav>
 
-<main>
-  <section>
+  <h1>ポートフォリオ</h1>
+
+  <section id="bio" class="section">
     <h2>略歴</h2>
-    <ul class="list">
-      <li>2023年4月 東京理科大学工学部情報工学科 入学</li>
-    </ul>
+    <p>2023年4月 東京理科大学工学部情報工学科入学</p>
   </section>
 
-  <section>
+  <section id="intern" class="section">
     <h2>インターン歴</h2>
-    <div class="card">
-      <ul class="list">
-        <li>2025年3月～ 現在 サグリ株式会社 エンジニアインターン（地理/台帳データ前処理）</li>
-        <li>2025年8月〜9月 フューチャー株式会社 Summer Engineer Camp（社内向け汎用アノテーションツール開発）</li>
-        <li>2025年9月〜 株式会社アズユニ AI/MLエンジニア（予定）</li>
-      </ul>
-    </div>
+    <p>2025年3月～現在 サグリ株式会社にエンジニアインターンとして参加。地理/台帳データの前処理に従事。</p>
+    <p>2025年8月～9月 フューチャー株式会社のSummer Engineer Campに参加。社内向けの汎用アノテーションツールの開発を担当。</p>
+    <p>2025年9月～ 株式会社アズユニにAI/MLエンジニアとして参加（予定）</p>
   </section>
 
-  <section>
+  <section id="interest" class="section">
     <h2>興味関心</h2>
-    <p>画像AIによる医療診断サポートに関心があり、画像処理・画像AIおよび周辺のAI分野を学習中。社会実装の前段としてWebアプリ開発にも注力し、現在は一般向けiOSアプリを準備中。</p>
+    <p>将来的には、画像AIを利用した医療診断のサポートを通して、医療分野に貢献したいと考えているので、画像処理や画像AIの技術、またその周縁としてAI分野全般に興味があります。</p>
+    <p>内部実装については現在勉強中です。</p>
+    <p>AIの社会実装の前段階としてwebアプリ開発について勉強し始め、存外楽しかったので最近はwebアプリ開発にも勤しんでおり、今は一般向けのiOSアプリを作ろうとしています。</p>
   </section>
 
-  <section>
+  <section id="works" class="section">
     <h2>成果物</h2>
 
-    <article class="work card">
-      <div class="tag">Flask</div><div class="tag">Auth</div><div class="tag">掲示板</div>
-      <h3>UniChat</h3>
-      <p>2025年春。Flaskで静的配信と最小限の認証・掲示板機能を実装。</p>
-      <img src="assets/unichat.png" alt="UniChat スクリーンショット">
-    </article>
+    <h3>UniChat</h3>
+    <p>2025年春に、webの勉強の一環で、Flaskを用いて実装。実装としてはFlaskサーバからの静的ファイルの配信がメインであり、最低限の認証機能、掲示板機能を実装している</p>
+    <figure>
+      <img src="" alt="UniChat のスクリーンショット（掲載予定）">
+      <figcaption><small>（UniChatの画像を載せる予定）</small></figcaption>
+    </figure>
 
-    <article class="work card">
-      <div class="tag">Flask</div><div class="tag">匿名投稿</div><div class="tag">いいね</div>
-      <h3>ConnectU</h3>
-      <p>2025年8月。初心者向けハッカソンでチーム開発。UniChatをベースに匿名投稿/コメント/いいね等を追加。学内の悩みを匿名で相談できる場を目指した。</p>
-      <img src="assets/connectu.png" alt="ConnectU スクリーンショット">
-    </article>
+    <h3>ConnectU</h3>
+    <p>2025年に8月初めに、初心者用のハッカソンでチームメンバー二人と共に実装。UniChatをベースとしており、それに匿名投稿/コメント機能やいいね機能などを追加している。ニーズやユースケースはチームメンバーと話し合い、自分の立場や交友関係にとらわれず、学内の悩み事を相談できるような場を提供することを目的に開発した。</p>
+    <figure>
+      <img src="" alt="ConnectU のスクリーンショット（掲載予定）">
+      <figcaption><small>（ConnectUの画像を載せる予定）</small></figcaption>
+    </figure>
 
-    <article class="work card">
-      <div class="tag">社内向け</div><div class="tag">フロント担当</div><div class="tag">矩形判定</div>
-      <h3>Image Annotator</h3>
-      <p>2025年夏。社内向け汎用アノテーションツール。フロント実装と矩形判定アルゴリズムを担当。詳細はNDAのため非公開。</p>
-      <img src="assets/annotator-thumb.jpg" alt="Image Annotator サムネイル">
-    </article>
+    <h3>Image Annotator</h3>
+    <p>2025年のSummer Engineer Campで開発を担当した、社内向けの汎用アノテーションツール。主にフロントエンドの実装 + 矩形判定アルゴリズムの開発を担当。詳細は秘密保持契約のため省略。</p>
+    <p><small>（もし申請通ったらデモ動画を貼る予定）</small></p>
 
-    <article class="work card">
-      <div class="tag">Next.js</div><div class="tag">FastAPI</div><div class="tag">Render</div>
-      <h3>lab-vote-app</h3>
-      <p>2025年9月。3日程度で構想から実装・デプロイまで。認証、投票、集計（平均・中央値・箱ひげ図）、配属シミュレーションを提供。投票者のみ集計・シミュレーション利用可能にする設計で参加を促進。</p>
-      <ul class="list">
-        <li>実ユーザ登録 47名（2025/09/20時点）</li>
-        <li>今後は70名以上の参加獲得と機能追加を予定</li>
+    <h3>lab-vote-app</h3>
+    <p>2025年9月　3日間程度で集中的に開発。フルスタックで機能の構想、設計、実装まで一気通貫して一人で行い、Renderでのデプロイ、学科内LINEでの周知まで全て担当。</p>
+
+    <div class="stack">
+      <p>技術スタック：</p>
+      <ul>
+        <li>フロントエンド：Next.js</li>
+        <li>バックエンド：FastAPI</li>
+        <li>インフラ：Render</li>
       </ul>
-      <img src="assets/lab-vote-app.png" alt="lab-vote-app スクリーンショット（一部マスキング）">
-    </article>
-  </section>
-</main>
+    </div>
 
-<footer>
-  <small>© 2025 Sota Minokawa</small>
-</footer>
+    <p>現時点で実装できているのは</p>
+    <ol>
+      <li>認証機能<br>学内メールアドレスのバリデーション及び認証</li>
+      <li>投票機能<br>各人の成績と研究室志望を投票。内容は匿名で保存され、個人を特定できないようになっている。</li>
+      <li>集計機能<br>投票の結果を元に、志望人数や成績の平均、中央値、箱ひげ図などで結果を可視化している。</li>
+      <li>研究室配属シミュレーション機能<br>学科特有の研究室配属ロジックを元に、現在の成績及び志望研究室を入力した際に、結果としてどの研究室に配属になるかをシミュレーションする機能を実装している。シミュレーションはバックエンドで実行され、結果だけ返すようになっている。任意の成績及び志望研究室の組み合わせで実行可能で、かつ志望順位を入れ替えた全6パターンで検証可能。</li>
+    </ol>
+
+    <p>背景：</p>
+    <ul>
+      <li>学科では特定の時期に研究室配属アンケートがとられる</li>
+      <li>回答内容としては第1～Xまでの志望研究室</li>
+      <li>その結果を元に特定ロジックに基づいて各学生の配属される研究室が決定される。</li>
+    </ul>
+
+    <h3>従来の問題点とその解決</h3>
+    <p>アンケートの回答ができるのは事前調査と本回答の2回だけであり、全体の傾向が確認できるのは事前調査後だけである。つまり、リアルタイムで動向を確認するのが困難。さらに、発表されるのは人数だけであり、実際どの成績の層が集まっているかも把握できない。対して、配属ロジックは駆け引きが生まれるような仕組みになっており、なるべく良い結果を出すには、出来るだけ多くの情報/判断材料が必要。そのため、リアルタイムで全体の動向を確認でき、さらに判断材料としてシミュレーションを実行できるようなプロダクトを開発するに至った。</p>
+
+    <h3>注力した点</h3>
+    <p>このプロダクトは、学科104人に対して大部分の実ユーザが集まらないと意味を成さないものであったので、「投票したくなるような動機付け」に一番注力した。代表的なものとしては、</p>
+    <ul>
+      <li>投票を行わなければ集計結果を閲覧できない</li>
+      <li>投票を行わなければシミュレーションを実行できない</li>
+      <li>シミュレーションを行う際の初期値は該当ユーザのものに設定されているため、正確な値を予め投票しておいた方が利用しやすくなる</li>
+    </ul>
+    <p>など。結果として、リリース後3日目（2025/09/20時点）で、47人のユーザに登録いただいている。しかし、理想としては最低でも70人が集計/シミュレーションの精度向上に必要だと思っているので、今後はさらに機能追加し、インセンティブを向上させる所存である。</p>
+
+    <figure>
+      <img src="" alt="lab-vote-app のスクリーンショット（マスキング付き掲載予定）">
+      <figcaption><small>（lab-vote-appの画像をマスキング付きで貼る予定）</small></figcaption>
+    </figure>
+  </section>
+
+  <footer style="margin-top:4rem">
+    <small>&copy; 2025 Sota Minokawa</small>
+  </footer>
 </body>
 </html>
