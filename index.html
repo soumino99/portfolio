@@ -6,26 +6,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root { color-scheme: light dark; }
-    body{font-family: system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Yu Gothic UI","Noto Sans CJK JP",sans-serif;line-height:1.8;margin:40px auto;max-width:900px;padding:0 20px}
-    h1{font-size:2.2rem;margin:0 0 .5em}
-    h2{margin:2.0em 0 .6em;color:#222;border-bottom:2px solid #e5e5e5;padding-bottom:.3em}
-    h3{margin:1.6em 0 .4em;color:#333}
-    p{margin:.6em 0}
-    ul,ol{margin:.4em 0 .8em 1.4em}
-    li{margin:.3em 0}
-    small,figcaption{color:#666}
-    img{max-width:100%;height:auto;border-radius:8px}
-    .stack{background:#f8f9fa;border:1px solid #eee;border-radius:8px;padding:10px 14px;margin:.6em 0}
-    .section{scroll-margin-top:84px}
-    nav{position:sticky;top:0;background:color-mix(in oklab, white 92%, transparent);backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #eee;margin:-40px auto 24px;max-width:900px;padding:10px 20px}
-    nav a{margin-right:12px;text-decoration:none;color:#0b57d0}
-    @media (prefers-color-scheme: dark){
-      body{color:#eaeaea;background:#0b0b0b}
-      h2{border-color:#333}
-      .stack{background:#111;border-color:#222}
-      nav{background:rgba(16,16,16,.7);border-color:#222}
-      nav a{color:#8ab4f8}
-      small,figcaption{color:#aaa}
+    body {
+      font-family: system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Yu Gothic UI","Noto Sans CJK JP",sans-serif;
+      line-height:1.8;
+      margin:40px auto;
+      max-width:900px;
+      padding:0 20px;
+    }
+    h1,h2,h3 {
+      margin:0 0 .5em;
+      color:#222; /* ライトテーマ: 黒 */
+    }
+    h1 { font-size:2.2rem }
+    h2 {
+      margin:2.0em 0 .6em;
+      border-bottom:2px solid #e5e5e5;
+      padding-bottom:.3em;
+    }
+    h3 { margin:1.6em 0 .4em }
+    p { margin:.6em 0 }
+    ul,ol { margin:.4em 0 .8em 1.4em }
+    li { margin:.3em 0 }
+    small,figcaption { color:#666 }
+    img { max-width:100%; height:auto; border-radius:8px }
+    .stack { background:#f8f9fa; border:1px solid #eee; border-radius:8px; padding:10px 14px; margin:.6em 0 }
+    .section { scroll-margin-top:84px }
+    nav {
+      position:sticky;
+      top:0;
+      background:color-mix(in oklab, white 92%, transparent);
+      backdrop-filter:saturate(140%) blur(6px);
+      border-bottom:1px solid #eee;
+      margin:-40px auto 24px;
+      max-width:900px;
+      padding:10px 20px;
+    }
+    nav a { margin-right:12px; text-decoration:none; color:#0b57d0 }
+
+    @media (prefers-color-scheme: dark) {
+      body { color:#eaeaea; background:#0b0b0b }
+      h1,h2,h3 { color:#fff } /* ダークテーマ: 白 */
+      h2 { border-color:#333 }
+      .stack { background:#111; border-color:#222 }
+      nav { background:rgba(16,16,16,.7); border-color:#222 }
+      nav a { color:#8ab4f8 }
+      small,figcaption { color:#aaa }
     }
   </style>
 </head>
@@ -35,6 +60,7 @@
     <a href="#intern">インターン歴</a>
     <a href="#interest">興味関心</a>
     <a href="#works">成果物</a>
+    <a href="#note">ひとこと</a>
   </nav>
 
   <h1>ポートフォリオ</h1>
@@ -46,7 +72,7 @@
 
   <section id="intern" class="section">
     <h2>インターン歴</h2>
-    <p>2025年3月～現在 サグリ株式会社にエンジニアインターンとして参加。地理/台帳データの前処理に従事。</p>
+    <p>2025年2月～現在 サグリ株式会社にエンジニアインターンとして参加。地理/台帳データの前処理に従事。</p>
     <p>2025年8月～9月 フューチャー株式会社のSummer Engineer Campに参加。社内向けの汎用アノテーションツールの開発を担当。</p>
     <p>2025年9月～ 株式会社アズユニにAI/MLエンジニアとして参加（予定）</p>
   </section>
@@ -55,32 +81,29 @@
     <h2>興味関心</h2>
     <p>将来的には、画像AIを利用した医療診断のサポートを通して、医療分野に貢献したいと考えているので、画像処理や画像AIの技術、またその周縁としてAI分野全般に興味があります。</p>
     <p>内部実装については現在勉強中です。</p>
-    <p>AIの社会実装の前段階としてwebアプリ開発について勉強し始め、存外楽しかったので最近はwebアプリ開発にも勤しんでおり、今は一般向けのiOSアプリを作ろうとしています。</p>
+    <p>AIの社会実装の前段階としてwebアプリ開発について勉強し始め、存外楽しかったので最近はwebアプリ開発にも勤しんでおり、次は一般向けのiOSアプリを作ろうと思っています。</p>
   </section>
 
   <section id="works" class="section">
     <h2>成果物</h2>
 
     <h3>UniChat</h3>
-    <p>2025年春に、webの勉強の一環で、Flaskを用いて実装。実装としてはFlaskサーバからの静的ファイルの配信がメインであり、最低限の認証機能、掲示板機能を実装している</p>
-    <figure>
-      <img src="" alt="UniChat のスクリーンショット（掲載予定）">
-      <figcaption><small>（UniChatの画像を載せる予定）</small></figcaption>
-    </figure>
+    <p>2025年春に、webの勉強の一環で、Flaskを用いて実装。実装としてはFlaskサーバからの静的ファイルの配信がメインであり、最低限の認証機能、掲示板機能を実装している。</p>
+    <p><small>もうRenderが動いてない。気が向いたらローカルで動かして貼る予定</small></p>
 
     <h3>ConnectU</h3>
-    <p>2025年に8月初めに、初心者用のハッカソンでチームメンバー二人と共に実装。UniChatをベースとしており、それに匿名投稿/コメント機能やいいね機能などを追加している。ニーズやユースケースはチームメンバーと話し合い、自分の立場や交友関係にとらわれず、学内の悩み事を相談できるような場を提供することを目的に開発した。</p>
+    <p>2025年の8月初めに、初心者用のハッカソンでチームメンバー二人と共に実装。前述のUniChatをベースとしており、それに匿名投稿/コメント機能やいいね機能、チャンネル別投稿機能を追加している。ニーズやユースケースはチームメンバーと話し合い、自分の立場や交友関係にとらわれず、学内の悩み事を相談できるような場を提供することを目的に開発した。</p>
     <figure>
-      <img src="" alt="ConnectU のスクリーンショット（掲載予定）">
-      <figcaption><small>（ConnectUの画像を載せる予定）</small></figcaption>
+      <img src="assets/ConnectU.png" alt="ConnectU のスクリーンショット">
+      <figcaption><small>ConnectUの画像</small></figcaption>
     </figure>
 
     <h3>Image Annotator</h3>
-    <p>2025年のSummer Engineer Campで開発を担当した、社内向けの汎用アノテーションツール。主にフロントエンドの実装 + 矩形判定アルゴリズムの開発を担当。詳細は秘密保持契約のため省略。</p>
+    <p>2025年のフューチャー社Summer Engineer Campで開発を担当した、社内向けの汎用アノテーションツール。主にフロントエンドの実装 + 矩形判定アルゴリズムの開発を担当。詳細は秘密保持契約のため省略。</p>
     <p><small>（もし申請通ったらデモ動画を貼る予定）</small></p>
 
     <h3>lab-vote-app</h3>
-    <p>2025年9月　3日間程度で集中的に開発。フルスタックで機能の構想、設計、実装まで一気通貫して一人で行い、Renderでのデプロイ、学科内LINEでの周知まで全て担当。</p>
+    <p>2025年9月中旬、3日間程度で集中的に開発。フルスタックで機能の構想、設計、実装まで一気通貫して一人で行い、Renderでのデプロイ、学科内での周知まで全て担当。</p>
 
     <div class="stack">
       <p>技術スタック：</p>
@@ -116,12 +139,36 @@
       <li>投票を行わなければシミュレーションを実行できない</li>
       <li>シミュレーションを行う際の初期値は該当ユーザのものに設定されているため、正確な値を予め投票しておいた方が利用しやすくなる</li>
     </ul>
-    <p>など。結果として、リリース後3日目（2025/09/20時点）で、47人のユーザに登録いただいている。しかし、理想としては最低でも70人が集計/シミュレーションの精度向上に必要だと思っているので、今後はさらに機能追加し、インセンティブを向上させる所存である。</p>
+    <p>など。結果として、リリース後3日目（2025/09/20時点）で、47人のユーザに登録いただいている。しかし、理想としては最低でも70人が集計/シミュレーションの信頼性及び精度向上に必要だと考えているので、今後はさらに機能追加し、インセンティブを向上させる所存である。</p>
 
     <figure>
-      <img src="" alt="lab-vote-app のスクリーンショット（マスキング付き掲載予定）">
-      <figcaption><small>（lab-vote-appの画像をマスキング付きで貼る予定）</small></figcaption>
+      <img src="assets/lab-vote-app_register.png" alt="lab-vote-app 登録画面">
+      <figcaption><small>lab-vote-app 登録画面</small></figcaption>
     </figure>
+    <figure>
+      <img src="assets/lab-vote-app_login.png" alt="lab-vote-app ログイン画面">
+      <figcaption><small>lab-vote-app ログイン画面</small></figcaption>
+    </figure>
+    <figure>
+      <img src="assets/lab-vote-app_vote.png" alt="lab-vote-app 投票画面">
+      <figcaption><small>lab-vote-app 投票画面</small></figcaption>
+    </figure>
+    <figure>
+      <img src="assets/lab-vote-app_stats.png" alt="lab-vote-app 集計結果画面">
+      <figcaption><small>lab-vote-app 集計結果画面</small></figcaption>
+    </figure>        
+    <figure>
+      <img src="assets/lab-vote-app_simulation.png" alt="lab-vote-app シミュレーション画面">
+      <figcaption><small>lab-vote-app シミュレーション画面</small></figcaption>
+    </figure>
+  </section>
+
+  <section id="note" class="section">
+    <h2>ひとこと</h2>
+    <p>成果物として色々挙げましたが、結局は内輪ネタに過ぎません。<br>
+    10月以降は、主に一般向けのiOSアプリの開発に着手する所存です。<br>
+    開発経験も知識もまだまだ全然足りていないので、ごりごり開発してどんどん成長していきます。<br>
+    またAI/ML領域の見識もこれから深めていきます。</p>
   </section>
 
   <footer style="margin-top:4rem">
