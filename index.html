@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ポートフォリオ | 箕川 創太</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="東京理科大学 情報工学科3年 箕川創太のポートフォリオ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    :root{--fg:#111;--bg:#fff;--muted:#666;--link:#0b63ce;--card:#f6f7f9;}
+    *{box-sizing:border-box} body{margin:0;color:var(--fg);background:var(--bg);font:16px/1.7 system-ui,Segoe UI,Roboto,"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif}
+    header,main,footer{max-width:900px;margin:auto;padding:24px}
+    header{padding-top:40px}
+    h1{margin:0 0 8px;font-size:28px} h2{margin:32px 0 12px;font-size:22px}
+    p,li{margin:6px 0} small{color:var(--muted)}
+    .grid{display:grid;gap:16px}
+    @media(min-width:800px){.grid{grid-template-columns:1.2fr 2fr}}
+    .card{background:var(--card);padding:16px;border-radius:10px}
+    .work{display:grid;gap:8px}
+    .work img{width:100%;height:auto;border-radius:8px;border:1px solid #e5e7eb}
+    .tag{display:inline-block;padding:2px 8px;border:1px solid #cbd5e1;border-radius:999px;font-size:12px;margin-right:6px}
+    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
+    .list li{margin-bottom:6px}
+  </style>
+</head>
+<body>
+<header class="grid">
+  <div>
+    <h1>箕川 創太 / Sota Minokawa</h1>
+    <p>東京理科大学 工学部 情報工学科3年</p>
+    <p><a href="https://SotaMMM.github.io/portfolio/">SotaMMM.github.io/portfolio</a></p>
+    <small>連絡先やGitHub等は後で追記</small>
+  </div>
+  <div><img src="assets/profile.jpg" alt="プロフィール写真" style="width:220px;border-radius:12px;border:1px solid #e5e7eb"></div>
+</header>
+
+<main>
+  <section>
+    <h2>略歴</h2>
+    <ul class="list">
+      <li>2023年4月 東京理科大学工学部情報工学科 入学</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>インターン歴</h2>
+    <div class="card">
+      <ul class="list">
+        <li>2025年3月～ 現在 サグリ株式会社 エンジニアインターン（地理/台帳データ前処理）</li>
+        <li>2025年8月〜9月 フューチャー株式会社 Summer Engineer Camp（社内向け汎用アノテーションツール開発）</li>
+        <li>2025年9月〜 株式会社アズユニ AI/MLエンジニア（予定）</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>興味関心</h2>
+    <p>画像AIによる医療診断サポートに関心があり、画像処理・画像AIおよび周辺のAI分野を学習中。社会実装の前段としてWebアプリ開発にも注力し、現在は一般向けiOSアプリを準備中。</p>
+  </section>
+
+  <section>
+    <h2>成果物</h2>
+
+    <article class="work card">
+      <div class="tag">Flask</div><div class="tag">Auth</div><div class="tag">掲示板</div>
+      <h3>UniChat</h3>
+      <p>2025年春。Flaskで静的配信と最小限の認証・掲示板機能を実装。</p>
+      <img src="assets/unichat.png" alt="UniChat スクリーンショット">
+    </article>
+
+    <article class="work card">
+      <div class="tag">Flask</div><div class="tag">匿名投稿</div><div class="tag">いいね</div>
+      <h3>ConnectU</h3>
+      <p>2025年8月。初心者向けハッカソンでチーム開発。UniChatをベースに匿名投稿/コメント/いいね等を追加。学内の悩みを匿名で相談できる場を目指した。</p>
+      <img src="assets/connectu.png" alt="ConnectU スクリーンショット">
+    </article>
+
+    <article class="work card">
+      <div class="tag">社内向け</div><div class="tag">フロント担当</div><div class="tag">矩形判定</div>
+      <h3>Image Annotator</h3>
+      <p>2025年夏。社内向け汎用アノテーションツール。フロント実装と矩形判定アルゴリズムを担当。詳細はNDAのため非公開。</p>
+      <img src="assets/annotator-thumb.jpg" alt="Image Annotator サムネイル">
+    </article>
+
+    <article class="work card">
+      <div class="tag">Next.js</div><div class="tag">FastAPI</div><div class="tag">Render</div>
+      <h3>lab-vote-app</h3>
+      <p>2025年9月。3日程度で構想から実装・デプロイまで。認証、投票、集計（平均・中央値・箱ひげ図）、配属シミュレーションを提供。投票者のみ集計・シミュレーション利用可能にする設計で参加を促進。</p>
+      <ul class="list">
+        <li>実ユーザ登録 47名（2025/09/20時点）</li>
+        <li>今後は70名以上の参加獲得と機能追加を予定</li>
+      </ul>
+      <img src="assets/lab-vote-app.png" alt="lab-vote-app スクリーンショット（一部マスキング）">
+    </article>
+  </section>
+</main>
+
+<footer>
+  <small>© 2025 Sota Minokawa</small>
+</footer>
+</body>
+</html>
