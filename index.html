@@ -15,7 +15,7 @@
     }
     h1,h2,h3 {
       margin:0 0 .5em;
-      color:#222; /* ライトテーマ: 黒 */
+      color:#222;
     }
     h1 { font-size:2.2rem }
     h2 {
@@ -29,8 +29,9 @@
     li { margin:.3em 0 }
     small,figcaption { color:#666 }
     img { max-width:100%; height:auto; border-radius:8px }
-    .stack { background:#f8f9fa; border:1px solid #eee; border-radius:8px; padding:10px 14px; margin:.6em 0 }
     .section { scroll-margin-top:84px }
+
+    /* --- Nav (pill style) --- */
     nav {
       position:sticky;
       top:0;
@@ -40,17 +41,117 @@
       margin:-40px auto 24px;
       max-width:900px;
       padding:10px 20px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
     }
-    nav a { margin-right:12px; text-decoration:none; color:#0b57d0 }
+    nav a {
+      text-decoration:none;
+      color:#0b57d0;
+      padding:4px 14px;
+      border-radius:20px;
+      transition: background .2s, color .2s;
+    }
+    nav a:hover {
+      background:#0b57d0;
+      color:#fff;
+    }
 
+    /* --- Timeline (internship) --- */
+    .timeline-item {
+      border-left:3px solid #0b57d0;
+      padding:12px 0 12px 20px;
+      margin:0 0 8px;
+    }
+    .timeline-item .date {
+      font-size:.85rem;
+      color:#666;
+      display:block;
+      margin-bottom:2px;
+    }
+    .timeline-item .company {
+      font-weight:700;
+      font-size:1.05rem;
+    }
+    .timeline-item .desc {
+      margin:.4em 0 0;
+    }
+
+    /* --- Project card --- */
+    .project-card {
+      border:1px solid #e5e5e5;
+      border-radius:12px;
+      padding:24px;
+      margin:1.6em 0;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .project-card:hover {
+      transform:translateY(-2px);
+      box-shadow:0 6px 20px rgba(0,0,0,.08);
+    }
+    .project-card h3 {
+      margin:0 0 .3em;
+    }
+    .project-card .stack {
+      margin:.8em 0 .4em;
+    }
+
+    /* --- Stack tag --- */
+    .stack { background:#f8f9fa; border:1px solid #eee; border-radius:8px; padding:10px 14px; margin:.6em 0 }
+
+    /* --- Gallery grid --- */
+    .gallery {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:12px;
+      margin:1em 0;
+    }
+    .gallery figure {
+      margin:0;
+    }
+    .gallery figcaption {
+      font-size:.8rem;
+      margin-top:4px;
+    }
+
+    /* --- Section spacing --- */
+    section.section {
+      margin-bottom:2.5em;
+    }
+
+    /* --- Badge (for in-progress) --- */
+    .badge {
+      display:inline-block;
+      font-size:.75rem;
+      padding:2px 10px;
+      border-radius:12px;
+      background:#e8f5e9;
+      color:#2e7d32;
+      font-weight:600;
+      vertical-align:middle;
+      margin-left:8px;
+    }
+
+    /* ====== Dark mode ====== */
     @media (prefers-color-scheme: dark) {
       body { color:#eaeaea; background:#0b0b0b }
-      h1,h2,h3 { color:#fff } /* ダークテーマ: 白 */
+      h1,h2,h3 { color:#fff }
       h2 { border-color:#333 }
       .stack { background:#111; border-color:#222 }
       nav { background:rgba(16,16,16,.7); border-color:#222 }
       nav a { color:#8ab4f8 }
+      nav a:hover { background:#8ab4f8; color:#0b0b0b }
       small,figcaption { color:#aaa }
+      .timeline-item { border-left-color:#8ab4f8 }
+      .timeline-item .date { color:#aaa }
+      .project-card { border-color:#333; }
+      .project-card:hover { box-shadow:0 6px 20px rgba(255,255,255,.04); }
+      .badge { background:#1b3a1d; color:#81c784; }
+    }
+
+    /* ====== Mobile ====== */
+    @media (max-width: 600px) {
+      .gallery { grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -67,125 +168,169 @@
 
   <section id="bio" class="section">
     <h2>略歴</h2>
-    <p>2023年4月 東京理科大学工学部情報工学科入学</p>
+    <p>2023年4月 東京理科大学工学部情報工学科入学（現在4年次）</p>
   </section>
 
   <section id="intern" class="section">
     <h2>インターン歴</h2>
-    <p>2025年2月～ サグリ株式会社にエンジニアインターンとして参加。地理/台帳データの前処理に従事。</p>
-    <p>2025年8月～9月 フューチャー株式会社のSummer Engineer Campに参加。社内向けの汎用アノテーションツールの開発を担当。</p>
-    <p>2025年9月～ 株式会社アズユニにAIエンジニアとして参加</p>
+
+    <div class="timeline-item">
+      <span class="date">2024年2月～2026年3月</span>
+      <span class="company">東京理科大学 ITサービスデスク</span>
+      <p class="desc">学内ITサービスのお問い合わせ対応を担当。加えて、事務員の定常業務を効率化するRPAをPower Automateを用いてチーム体制で構築するなど、RPA導入支援にも従事。</p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="date">2024年12月～2025年3月</span>
+      <span class="company">株式会社油井コンサルティング</span>
+      <p class="desc">電子カルテデータに基づき、傷病名から処方薬剤を推測するナイーブベイズモデルを実装。病院の事務員が電子カルテや書類の不備を修正する際の参考情報として、確度の高い順に薬剤を表示する仕組みを構築。加えて、AccessデータベースからC#で分析用テーブルを生成するシステムも開発。</p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="date">2025年2月～2026年3月</span>
+      <span class="company">サグリ株式会社</span>
+      <p class="desc">エンジニアインターンとして参加。地理/台帳データの前処理に従事。</p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="date">2025年8月～9月</span>
+      <span class="company">フューチャー株式会社</span>
+      <p class="desc">Summer Engineer Campに参加。社内向けの汎用アノテーションツールの開発を担当。</p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="date">2025年9月～</span>
+      <span class="company">株式会社アズユニ</span>
+      <p class="desc">AIエンジニアとして参加。面談アルゴリズムの開発・改善（論文読みから実装まで）や、外部企業との協業プロジェクトにおける要件整理・API仕様策定などに従事。</p>
+    </div>
   </section>
 
   <section id="interest" class="section">
     <h2>興味関心</h2>
-    <p>将来的には、画像AIを利用した医療診断のサポートを通じて、医療分野に貢献したいと考えているので、画像処理や画像AIの技術、またその周縁としてAI分野全般に興味があります。</p>
-    <p>内部実装については現在勉強中です。</p>
-    <p>AIの社会実装の前段階としてwebアプリ開発について勉強し始め、存外楽しかったので最近はwebアプリ開発にも勤しんでおり、次は一般向けのiOSアプリを作ろうと思っています。</p>
+    <p>画像処理・画像AIの技術を中心に、AI分野全般に興味があります。将来的には、画像AIを活用した医療診断のサポートを通じて医療分野に貢献したいと考えています。</p>
+    <p>最近はインターンや個人開発を通じて、技術をプロダクトに落とし込む力（プロダクト志向）が身についてきたと感じています。今後は研究力もしっかり伸ばしていきたいと考えており、技術と研究の両輪で成長していく方向性を目指しています。</p>
   </section>
 
   <section id="works" class="section">
     <h2>成果物</h2>
 
-    <h3>UniChat</h3>
-    <p>2025年春に、webの勉強の一環で、Flaskを用いて実装。実装としてはFlaskサーバからの静的ファイルの配信がメインであり、最低限の認証機能、掲示板機能を実装している。</p>
-    <p><small>もうRenderが動いてない。気が向いたらローカルで動かして貼る予定</small></p>
-
-    <h3>ConnectU</h3>
-    <p>2025年の8月初めに、初心者用のハッカソンでチームメンバー二人と共に実装。前述のUniChatをベースとしており、それに匿名投稿/コメント機能やいいね機能、チャンネル別投稿機能を追加している。ニーズやユースケースはチームメンバーと話し合い、自分の立場や交友関係にとらわれず、学内の悩み事を相談できるような場を提供することを目的に開発した。</p>
-    <figure>
-      <img src="assets/ConnectU.png" alt="ConnectU のスクリーンショット">
-      <figcaption><small>ConnectUの画像</small></figcaption>
-    </figure>
-
-    <h3>Image Annotator</h3>
-    <p>2025年のフューチャー社Summer Engineer Campで開発を担当した、社内向けの汎用アノテーションツール。主にフロントエンドの実装 + 矩形判定アルゴリズムの開発を担当。詳細は秘密保持契約のため省略。</p>
-    <p><small>（もし申請通ったらデモ動画を貼る予定）</small></p>
-
-    <h3>lab-vote-app</h3>
-    <p>2025年9月中旬、3日間程度で集中的に開発。フルスタックで機能の構想、設計、実装まで一気通貫して一人で行い、Renderでのデプロイ、学科内での周知まで全て担当。</p>
-
-    <div class="stack">
-      <p>技術スタック：</p>
-      <ul>
-        <li>フロントエンド：Next.js</li>
-        <li>バックエンド：FastAPI</li>
-        <li>データベース：PostgreSQL</li>
-        <li>インフラ：Render</li>
-      </ul>
+    <div class="project-card">
+      <h3>UniChat</h3>
+      <p>2025年春に、webの勉強の一環で、Flaskを用いて実装。実装としてはFlaskサーバからの静的ファイルの配信がメインであり、最低限の認証機能、掲示板機能を実装している。</p>
+      <p><small>もうRenderが動いてない。気が向いたらローカルで動かして貼る予定</small></p>
     </div>
 
-    <p>現時点で実装できているのは</p>
-    <ol>
-      <li>認証機能<br>学内メールアドレスのバリデーション及び認証</li>
-      <li>投票機能<br>各人の成績と研究室志望を投票。内容は匿名で保存され、個人を特定できないようになっている。</li>
-      <li>集計機能<br>投票の結果を元に、志望人数や成績の平均、中央値、箱ひげ図などで結果を可視化している。</li>
-      <li>研究室配属シミュレーション機能<br>学科特有の研究室配属ロジックを元に、現在の成績及び志望研究室を入力した際に、結果としてどの研究室に配属になるかをシミュレーションする機能を実装している。シミュレーションはバックエンドで実行され、結果だけ返すようになっている。任意の成績及び志望研究室の組み合わせで実行可能で、かつ志望順位を入れ替えた全6パターンで検証可能。</li>
-    </ol>
-
-    <h3>背景：</h3>
-    <ul>
-      <li>学科では特定の時期に研究室配属アンケートがとられる</li>
-      <li>回答内容としては第1～Xまでの志望研究室</li>
-      <li>その結果を元に特定ロジックに基づいて各学生の配属される研究室が決定される。</li>
-    </ul>
-
-    <h3>従来の問題点とその解決</h3>
-    <p>アンケートの回答ができるのは事前調査と本回答の2回だけであり、全体の傾向が確認できるのは事前調査後だけである。つまり、リアルタイムで動向を確認するのが困難。さらに、発表されるのは人数だけであり、実際どの成績の層が集まっているかも把握できない。対して、配属ロジックは駆け引きが生まれるような仕組みになっており、なるべく良い結果を出すには、出来るだけ多くの情報/判断材料が必要。そのため、リアルタイムで全体の動向を確認でき、さらに判断材料としてシミュレーションを実行できるようなプロダクトを開発するに至った。</p>
-
-    <h3>注力した点</h3>
-    <p>このプロダクトは、学科104人に対して大部分の実ユーザが集まらないと意味を成さないものであったので、「投票したくなるような動機付け」に一番注力した。代表的なものとしては、</p>
-    <ul>
-      <li>投票を行わなければ集計結果を閲覧できない</li>
-      <li>投票を行わなければシミュレーションを実行できない</li>
-      <li>シミュレーションを行う際の初期値は該当ユーザのものに設定されているため、正確な値を予め投票しておいた方が利用しやすくなる</li>
-    </ul>
-    <p>など。結果として、リリース後3日目（2025/09/20時点）で、47人のユーザに登録いただいている。しかし、理想としては最低でも70人が集計/シミュレーションの信頼性及び精度向上に必要だと考えているので、今後はさらに機能追加し、インセンティブを向上させる所存である。(追記：以降51人までユーザ増加 → 最終時点では60人が登録)</p>
-
-    <figure>
-      <img src="assets/lab-vote-app_LP.png" alt="lab-vote-app LP画面">
-      <figcaption><small>lab-vote-app LP画面</small></figcaption>
-    </figure>
-    <figure>
-      <img src="assets/lab-vote-app_register.png" alt="lab-vote-app 登録画面">
-      <figcaption><small>lab-vote-app 登録画面</small></figcaption>
-    </figure>
-    <figure>
-      <img src="assets/lab-vote-app_login.png" alt="lab-vote-app ログイン画面">
-      <figcaption><small>lab-vote-app ログイン画面</small></figcaption>
-    </figure>
-    <figure>
-      <img src="assets/lab-vote-app_vote.png" alt="lab-vote-app 投票画面">
-      <figcaption><small>lab-vote-app 投票画面</small></figcaption>
-    </figure>
-    <figure>
-      <img src="assets/lab-vote-app_stats.png" alt="lab-vote-app 集計結果画面">
-      <figcaption><small>lab-vote-app 集計結果画面（その他統計は当学科の成績分布を露見する形となってしまうので省略）</small></figcaption>
-    </figure>        
-    <figure>
-      <img src="assets/lab-vote-app_simulation.png" alt="lab-vote-app シミュレーション画面">
-      <figcaption><small>lab-vote-app 個別シミュレーション画面</small></figcaption>
-    </figure>
+    <div class="project-card">
+      <h3>ConnectU</h3>
+      <p>2025年の8月初めに、初心者用のハッカソンでチームメンバー二人と共に実装。前述のUniChatをベースとしており、それに匿名投稿/コメント機能やいいね機能、チャンネル別投稿機能を追加している。ニーズやユースケースはチームメンバーと話し合い、自分の立場や交友関係にとらわれず、学内の悩み事を相談できるような場を提供することを目的に開発した。</p>
       <figure>
-        <img src="assets/lab-vote-app_all-stats.png" alt="lab-vote-app 全体シミュレーション画面">
-        <figcaption><small>lab-vote-app 全体シミュレーション画面</small></figcaption>
+        <img src="assets/ConnectU.png" alt="ConnectU のスクリーンショット">
+        <figcaption><small>ConnectUの画像</small></figcaption>
       </figure>
-      <figure>
-        <img src="assets/lab-vote-app_snap-shot.png" alt="lab-vote-app スナップショット画面">
-        <figcaption><small>lab-vote-app スナップショット画面</small></figcaption>
-      </figure>
+    </div>
+
+    <div class="project-card">
+      <h3>Image Annotator</h3>
+      <p>2025年のフューチャー社Summer Engineer Campで開発を担当した、社内向けの汎用アノテーションツール。主にフロントエンドの実装 + 矩形判定アルゴリズムの開発を担当。詳細は秘密保持契約のため省略。</p>
+      <p><small>（もし申請通ったらデモ動画を貼る予定）</small></p>
+    </div>
+
+    <div class="project-card">
+      <h3>lab-vote-app</h3>
+      <p>2025年9月中旬、3日間程度で集中的に開発。フルスタックで機能の構想、設計、実装まで一気通貫して一人で行い、Renderでのデプロイ、学科内での周知まで全て担当。</p>
+
+      <div class="stack">
+        <p>技術スタック：</p>
+        <ul>
+          <li>フロントエンド：Next.js</li>
+          <li>バックエンド：FastAPI</li>
+          <li>データベース：PostgreSQL</li>
+          <li>インフラ：Render</li>
+        </ul>
+      </div>
+
+      <p>現時点で実装できているのは</p>
+      <ol>
+        <li>認証機能<br>学内メールアドレスのバリデーション及び認証</li>
+        <li>投票機能<br>各人の成績と研究室志望を投票。内容は匿名で保存され、個人を特定できないようになっている。</li>
+        <li>集計機能<br>投票の結果を元に、志望人数や成績の平均、中央値、箱ひげ図などで結果を可視化している。</li>
+        <li>研究室配属シミュレーション機能<br>学科特有の研究室配属ロジックを元に、現在の成績及び志望研究室を入力した際に、結果としてどの研究室に配属になるかをシミュレーションする機能を実装している。シミュレーションはバックエンドで実行され、結果だけ返すようになっている。任意の成績及び志望研究室の組み合わせで実行可能で、かつ志望順位を入れ替えた全6パターンで検証可能。</li>
+      </ol>
+
+      <h3>背景：</h3>
+      <ul>
+        <li>学科では特定の時期に研究室配属アンケートがとられる</li>
+        <li>回答内容としては第1～Xまでの志望研究室</li>
+        <li>その結果を元に特定ロジックに基づいて各学生の配属される研究室が決定される。</li>
+      </ul>
+
+      <h3>従来の問題点とその解決</h3>
+      <p>アンケートの回答ができるのは事前調査と本回答の2回だけであり、全体の傾向が確認できるのは事前調査後だけである。つまり、リアルタイムで動向を確認するのが困難。さらに、発表されるのは人数だけであり、実際どの成績の層が集まっているかも把握できない。対して、配属ロジックは駆け引きが生まれるような仕組みになっており、なるべく良い結果を出すには、出来るだけ多くの情報/判断材料が必要。そのため、リアルタイムで全体の動向を確認でき、さらに判断材料としてシミュレーションを実行できるようなプロダクトを開発するに至った。</p>
+
+      <h3>注力した点</h3>
+      <p>このプロダクトは、学科104人に対して大部分の実ユーザが集まらないと意味を成さないものであったので、「投票したくなるような動機付け」に一番注力した。代表的なものとしては、</p>
+      <ul>
+        <li>投票を行わなければ集計結果を閲覧できない</li>
+        <li>投票を行わなければシミュレーションを実行できない</li>
+        <li>シミュレーションを行う際の初期値は該当ユーザのものに設定されているため、正確な値を予め投票しておいた方が利用しやすくなる</li>
+      </ul>
+      <p>など。結果として、リリース後3日目（2025/09/20時点）で、47人のユーザに登録いただいている。しかし、理想としては最低でも70人が集計/シミュレーションの信頼性及び精度向上に必要だと考えているので、今後はさらに機能追加し、インセンティブを向上させる所存である。(追記：以降51人までユーザ増加 → 最終時点では60人が登録)</p>
+
+      <div class="gallery">
+        <figure>
+          <img src="assets/lab-vote-app_LP.png" alt="lab-vote-app LP画面">
+          <figcaption>LP画面</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/lab-vote-app_register.png" alt="lab-vote-app 登録画面">
+          <figcaption>登録画面</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/lab-vote-app_login.png" alt="lab-vote-app ログイン画面">
+          <figcaption>ログイン画面</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/lab-vote-app_vote.png" alt="lab-vote-app 投票画面">
+          <figcaption>投票画面</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/lab-vote-app_stats.png" alt="lab-vote-app 集計結果画面">
+          <figcaption>集計結果画面</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/lab-vote-app_simulation.png" alt="lab-vote-app シミュレーション画面">
+          <figcaption>個別シミュレーション画面</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/lab-vote-app_all-stats.png" alt="lab-vote-app 全体シミュレーション画面">
+          <figcaption>全体シミュレーション画面</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/lab-vote-app_snap-shot.png" alt="lab-vote-app スナップショット画面">
+          <figcaption>スナップショット画面</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3>カケナビ <span class="badge">進行中</span></h3>
+      <p>2026年初頭より開発中のチームプロジェクト。家計簿アプリ × 購買データ活用をコンセプトとした新規事業で、ビジネスサイドと開発サイドの双方のメンバーで構成。自分はビジネスサイド（競合分析・データの強み/弱み分析・市場調査）および開発を担当。2026年4月中旬のピッチに向けてデモリリースを目指して開発中。</p>
+    </div>
+
+    <div class="project-card">
+      <h3>PoC検証プロジェクト <span class="badge">進行中</span></h3>
+      <p>東京理科大学の支援プログラムに採択された個人プロジェクト。現在企画・検証フェーズのため、詳細は追って更新予定。</p>
+    </div>
   </section>
 
   <section id="note" class="section">
     <h2>ひとこと</h2>
-    <p>成果物としていくつか挙げましたが、閉じたコミュニティ内の成果物の域を出ません。<br>
-    以降は、主に一般向けのiOSアプリの開発に着手する所存です。<br>
-    開発経験も知識もまだまだ全然足りていないので、ごりごり開発してどんどん成長していきます。<br>
-    またAI/ML領域の見識もこれから深めていきます。</p>
+    <p>インターンや個人開発を通じて、少しずつプロダクトを形にする力がついてきたと感じています。<br>
+    今後はAI/ML領域の研究にも本格的に踏み込みつつ、プロダクト開発と研究の両面で成長していきます。</p>
   </section>
 
   <footer style="margin-top:4rem">
-    <small>&copy; 2025 Sota Minokawa</small>
+    <small>&copy; 2025–2026 Sota Minokawa</small>
   </footer>
 </body>
 </html>
