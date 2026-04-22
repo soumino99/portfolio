@@ -2,34 +2,52 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>ポートフォリオ | Sota</title>
+  <title>Sota Minokawa | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sota Minokawa のポートフォリオ。AI・Web開発・プロダクト開発">
+  <meta property="og:title" content="Sota Minokawa | Portfolio">
+  <meta property="og:description" content="AI × Web開発 × プロダクト開発">
+  <meta property="og:type" content="website">
   <style>
-    :root { color-scheme: light dark; }
+    :root {
+      --blue: #0b57d0;
+      --border: #e5e5e5;
+      --bg-stack: #f8f9fa;
+      --text-muted: #666;
+      color-scheme: light dark;
+    }
+    html { scroll-behavior: smooth }
     body {
       font-family: system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Yu Gothic UI","Noto Sans CJK JP",sans-serif;
-      line-height:1.8;
+      font-size:15px;
+      line-height:1.75;
       margin:40px auto;
-      max-width:900px;
+      max-width:800px;
       padding:0 20px;
     }
-    h1,h2,h3 {
-      margin:0 0 .5em;
-      color:#222;
-    }
-    h1 { font-size:2.2rem }
+    h1,h2,h3 { margin:0 0 .5em; color:#222; }
+    h1 { font-size:2.2rem; letter-spacing:-.02em; line-height:1.2 }
     h2 {
       margin:2.0em 0 .6em;
-      border-bottom:2px solid #e5e5e5;
+      font-size:.95rem;
+      font-weight:700;
+      letter-spacing:.06em;
+      color:var(--text-muted);
+      border-bottom:2px solid var(--border);
       padding-bottom:.3em;
     }
     h3 { margin:1.6em 0 .4em }
     p { margin:.6em 0 }
     ul,ol { margin:.4em 0 .8em 1.4em }
     li { margin:.3em 0 }
-    small,figcaption { color:#666 }
+    small,figcaption { color:var(--text-muted) }
     img { max-width:100%; height:auto; border-radius:8px }
     .section { scroll-margin-top:84px }
+
+    /* --- Hero --- */
+    .hero { padding:2.5rem 0 1.5rem }
+    .hero h1 { margin:0 0 .3em }
+    .hero-sub { color:var(--text-muted); font-size:1rem; margin:0 }
 
     /* --- Nav (pill style) --- */
     nav {
@@ -37,67 +55,86 @@
       top:0;
       background:color-mix(in oklab, white 92%, transparent);
       backdrop-filter:saturate(140%) blur(6px);
-      border-bottom:1px solid #eee;
+      border-bottom:1px solid var(--border);
       margin:-40px auto 24px;
       max-width:900px;
       padding:10px 20px;
       display:flex;
       gap:8px;
       flex-wrap:wrap;
+      align-items:center;
     }
-    nav a {
+    .nav-home {
+      font-weight:700;
+      color:inherit;
       text-decoration:none;
-      color:#0b57d0;
+      margin-right:auto;
+      padding:4px 0;
+      letter-spacing:-.01em;
+      transition: color .2s;
+    }
+    .nav-home:hover { color:var(--blue) }
+    nav a:not(.nav-home) {
+      text-decoration:none;
+      color:var(--blue);
       padding:4px 14px;
       border-radius:20px;
       transition: background .2s, color .2s;
     }
-    nav a:hover {
-      background:#0b57d0;
+    nav a:not(.nav-home):hover {
+      background:var(--blue);
       color:#fff;
     }
 
     /* --- Timeline (internship) --- */
     .timeline-item {
-      border-left:3px solid #0b57d0;
+      border-left:3px solid var(--blue);
       padding:12px 0 12px 20px;
       margin:0 0 8px;
     }
     .timeline-item .date {
       font-size:.85rem;
-      color:#666;
+      color:var(--text-muted);
       display:block;
       margin-bottom:2px;
     }
-    .timeline-item .company {
-      font-weight:700;
-      font-size:1.05rem;
-    }
-    .timeline-item .desc {
-      margin:.4em 0 0;
-    }
+    .timeline-item .company { font-weight:700; font-size:1.05rem }
+    .timeline-item .desc { margin:.4em 0 0 }
 
     /* --- Project card --- */
     .project-card {
-      border:1px solid #e5e5e5;
+      border:1px solid var(--border);
       border-radius:12px;
       padding:24px;
       margin:1.6em 0;
+      cursor:pointer;
       transition: transform .2s, box-shadow .2s;
     }
     .project-card:hover {
       transform:translateY(-2px);
       box-shadow:0 6px 20px rgba(0,0,0,.08);
     }
-    .project-card h3 {
-      margin:0 0 .3em;
+    .project-card h3 { margin:0 0 .3em }
+    .project-card h3:not(:first-child) {
+      font-size:.9rem;
+      font-weight:700;
+      letter-spacing:.04em;
+      color:var(--text-muted);
+      margin:1.4em 0 .3em;
     }
-    .project-card .stack {
-      margin:.8em 0 .4em;
-    }
+.project-meta { font-size:.82rem; color:var(--text-muted); margin:.1em 0 .8em }
+    .project-card .stack { margin:.8em 0 .4em }
 
     /* --- Stack tag --- */
-    .stack { background:#f8f9fa; border:1px solid #eee; border-radius:8px; padding:10px 14px; margin:.6em 0 }
+    .stack {
+      background:var(--bg-stack);
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:10px 14px;
+      margin:.6em 0;
+    }
+    .stack p:first-child { margin-top:0 }
+    .stack > ul { margin-bottom:0 }
 
     /* --- Gallery grid --- */
     .gallery {
@@ -106,18 +143,12 @@
       gap:12px;
       margin:1em 0;
     }
-    .gallery figure {
-      margin:0;
-    }
-    .gallery figcaption {
-      font-size:.8rem;
-      margin-top:4px;
-    }
+    .gallery figure { margin:0 }
+    .gallery figcaption { font-size:.8rem; margin-top:4px }
+    .gallery img { transition: transform .25s, box-shadow .25s }
 
     /* --- Section spacing --- */
-    section.section {
-      margin-bottom:2.5em;
-    }
+    section.section { margin-bottom:2.5em }
 
     /* --- Badge (for in-progress) --- */
     .badge {
@@ -132,31 +163,107 @@
       margin-left:8px;
     }
 
+    /* --- Footer --- */
+    .footer {
+      margin-top:4rem;
+      padding-top:1.5rem;
+      border-top:1px solid var(--border);
+      text-align:center;
+    }
+
     /* ====== Dark mode ====== */
     @media (prefers-color-scheme: dark) {
+      :root { --blue:#8ab4f8; --border:#333; --bg-stack:#111; --text-muted:#aaa }
       body { color:#eaeaea; background:#0b0b0b }
-      h1,h2,h3 { color:#fff }
-      h2 { border-color:#333 }
-      .stack { background:#111; border-color:#222 }
-      nav { background:rgba(16,16,16,.7); border-color:#222 }
-      nav a { color:#8ab4f8 }
-      nav a:hover { background:#8ab4f8; color:#0b0b0b }
-      small,figcaption { color:#aaa }
-      .timeline-item { border-left-color:#8ab4f8 }
-      .timeline-item .date { color:#aaa }
-      .project-card { border-color:#333; }
-      .project-card:hover { box-shadow:0 6px 20px rgba(255,255,255,.04); }
-      .badge { background:#1b3a1d; color:#81c784; }
+      h1,h3 { color:#fff }
+      nav { background:rgba(16,16,16,.7) }
+      nav a:not(.nav-home):hover { color:#0b0b0b }
+      .project-card:hover { box-shadow:0 6px 20px rgba(255,255,255,.04) }
+      .badge { background:#1b3a1d; color:#81c784 }
+      #card-modal-inner { background:#1c1c1e }
     }
 
     /* ====== Mobile ====== */
     @media (max-width: 600px) {
-      .gallery { grid-template-columns:1fr; }
+      .gallery { grid-template-columns:1fr }
+    }
+
+    /* ====== Card Modal ====== */
+    #card-modal {
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.6);
+      backdrop-filter:blur(4px);
+      z-index:900;
+      overflow-y:auto;
+      padding:2rem 1rem;
+    }
+    #card-modal[open] {
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      animation:lb-fade .2s ease;
+    }
+    #card-modal-inner {
+      background:#fff;
+      border-radius:16px;
+      padding:36px;
+      max-width:720px;
+      width:100%;
+      margin:auto;
+      cursor:default;
+      box-shadow:0 24px 60px rgba(0,0,0,.25);
+      animation:lb-scale .2s ease;
+    }
+    #card-modal-inner h3 { margin:0 0 .3em }
+    #card-modal-inner h3:not(:first-child) {
+      font-size:.9rem;
+      font-weight:700;
+      letter-spacing:.04em;
+      color:var(--text-muted);
+      margin:1.4em 0 .3em;
+    }
+
+    /* ====== Lightbox ====== */
+    #lb {
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.85);
+      backdrop-filter:blur(6px);
+      place-items:center;
+      z-index:1000;
+      cursor:zoom-out;
+    }
+    #lb[open] {
+      display:grid;
+      animation:lb-fade .2s ease;
+    }
+    #lb img {
+      max-width:90vw;
+      max-height:90vh;
+      border-radius:12px;
+      object-fit:contain;
+      box-shadow:0 8px 40px rgba(0,0,0,.6);
+      cursor:default;
+      animation:lb-scale .2s ease;
+    }
+    @keyframes lb-fade  { from { opacity:0 } to { opacity:1 } }
+    @keyframes lb-scale { from { transform:scale(.94); opacity:0 } to { transform:scale(1); opacity:1 } }
+    .lb-trigger {
+      cursor:zoom-in;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .lb-trigger:hover {
+      transform:scale(1.015);
+      box-shadow:0 4px 16px rgba(0,0,0,.12);
     }
   </style>
 </head>
 <body>
   <nav>
+    <a href="#" class="nav-home">Sota</a>
     <a href="#bio">略歴</a>
     <a href="#intern">インターン歴</a>
     <a href="#interest">興味関心</a>
@@ -164,7 +271,10 @@
     <a href="#note">ひとこと</a>
   </nav>
 
-  <h1>ポートフォリオ</h1>
+  <div class="hero">
+    <h1>Sota Minokawa</h1>
+    <p class="hero-sub">AI · Web開発 · プロダクト開発</p>
+  </div>
 
   <section id="bio" class="section">
     <h2>略歴</h2>
@@ -216,27 +326,29 @@
 
     <div class="project-card">
       <h3>UniChat</h3>
+      <p class="project-meta">2025年春</p>
       <p>2025年春に、webの勉強の一環で、Flaskを用いて実装。実装としてはFlaskサーバからの静的ファイルの配信がメインであり、最低限の認証機能、掲示板機能を実装している。</p>
-      <p><small>もうRenderが動いてない。気が向いたらローカルで動かして貼る予定</small></p>
     </div>
 
     <div class="project-card">
       <h3>ConnectU</h3>
+      <p class="project-meta">2025年8月</p>
       <p>2025年の8月初めに、初心者用のハッカソンでチームメンバー二人と共に実装。前述のUniChatをベースとしており、それに匿名投稿/コメント機能やいいね機能、チャンネル別投稿機能を追加している。ニーズやユースケースはチームメンバーと話し合い、自分の立場や交友関係にとらわれず、学内の悩み事を相談できるような場を提供することを目的に開発した。</p>
       <figure>
-        <img src="assets/ConnectU.png" alt="ConnectU のスクリーンショット">
-        <figcaption><small>ConnectUの画像</small></figcaption>
+        <img src="assets/ConnectU.png" alt="ConnectU のスクリーンショット" loading="lazy" decoding="async">
+        <figcaption><small>ConnectU スクリーンショット</small></figcaption>
       </figure>
     </div>
 
     <div class="project-card">
       <h3>Image Annotator</h3>
+      <p class="project-meta">2025年8月〜9月</p>
       <p>2025年のフューチャー社Summer Engineer Campで開発を担当した、社内向けの汎用アノテーションツール。主にフロントエンドの実装 + 矩形判定アルゴリズムの開発を担当。詳細は秘密保持契約のため省略。</p>
-      <p><small>（もし申請通ったらデモ動画を貼る予定）</small></p>
     </div>
 
     <div class="project-card">
       <h3>lab-vote-app</h3>
+      <p class="project-meta">2025年9月</p>
       <p>2025年9月中旬、3日間程度で集中的に開発。フルスタックで機能の構想、設計、実装まで一気通貫して一人で行い、Renderでのデプロイ、学科内での周知まで全て担当。</p>
 
       <div class="stack">
@@ -278,35 +390,35 @@
 
       <div class="gallery">
         <figure>
-          <img src="assets/lab-vote-app_LP.png" alt="lab-vote-app LP画面">
+          <img src="assets/lab-vote-app_LP.png" alt="lab-vote-app LP画面" loading="lazy" decoding="async">
           <figcaption>LP画面</figcaption>
         </figure>
         <figure>
-          <img src="assets/lab-vote-app_register.png" alt="lab-vote-app 登録画面">
+          <img src="assets/lab-vote-app_register.png" alt="lab-vote-app 登録画面" loading="lazy" decoding="async">
           <figcaption>登録画面</figcaption>
         </figure>
         <figure>
-          <img src="assets/lab-vote-app_login.png" alt="lab-vote-app ログイン画面">
+          <img src="assets/lab-vote-app_login.png" alt="lab-vote-app ログイン画面" loading="lazy" decoding="async">
           <figcaption>ログイン画面</figcaption>
         </figure>
         <figure>
-          <img src="assets/lab-vote-app_vote.png" alt="lab-vote-app 投票画面">
+          <img src="assets/lab-vote-app_vote.png" alt="lab-vote-app 投票画面" loading="lazy" decoding="async">
           <figcaption>投票画面</figcaption>
         </figure>
         <figure>
-          <img src="assets/lab-vote-app_stats.png" alt="lab-vote-app 集計結果画面">
+          <img src="assets/lab-vote-app_stats.png" alt="lab-vote-app 集計結果画面" loading="lazy" decoding="async">
           <figcaption>集計結果画面</figcaption>
         </figure>
         <figure>
-          <img src="assets/lab-vote-app_simulation.png" alt="lab-vote-app シミュレーション画面">
+          <img src="assets/lab-vote-app_simulation.png" alt="lab-vote-app シミュレーション画面" loading="lazy" decoding="async">
           <figcaption>個別シミュレーション画面</figcaption>
         </figure>
         <figure>
-          <img src="assets/lab-vote-app_all-stats.png" alt="lab-vote-app 全体シミュレーション画面">
+          <img src="assets/lab-vote-app_all-stats.png" alt="lab-vote-app 全体シミュレーション画面" loading="lazy" decoding="async">
           <figcaption>全体シミュレーション画面</figcaption>
         </figure>
         <figure>
-          <img src="assets/lab-vote-app_snap-shot.png" alt="lab-vote-app スナップショット画面">
+          <img src="assets/lab-vote-app_snap-shot.png" alt="lab-vote-app スナップショット画面" loading="lazy" decoding="async">
           <figcaption>スナップショット画面</figcaption>
         </figure>
       </div>
@@ -314,11 +426,13 @@
 
     <div class="project-card">
       <h3>カケナビ <span class="badge">進行中</span></h3>
-      <p>2026年初頭より開発中のチームプロジェクト。家計簿アプリ × 購買データ活用をコンセプトとした新規事業で、ビジネスサイドと開発サイドの双方のメンバーで構成。自分はビジネスサイド（競合分析・データの強み/弱み分析・市場調査）および開発を担当。2026年4月中旬のピッチに向けてデモリリースを目指して開発中。</p>
+      <p class="project-meta">2026年〜</p>
+      <p>2026年初頭より開発中のチームプロジェクト。家計簿アプリ × 購買データ活用をコンセプトとした新規事業で、ビジネスサイドと開発サイドの双方のメンバーで構成。自分はビジネスサイド（競合分析・データの強み/弱み分析・市場調査）および開発を担当。</p>
     </div>
 
     <div class="project-card">
       <h3>PoC検証プロジェクト <span class="badge">進行中</span></h3>
+      <p class="project-meta">2026年〜</p>
       <p>東京理科大学の支援プログラムに採択された個人プロジェクト。現在企画・検証フェーズのため、詳細は追って更新予定。</p>
     </div>
   </section>
@@ -329,8 +443,62 @@
     今後はAI/ML領域の研究にも本格的に踏み込みつつ、プロダクト開発と研究の両面で成長していきます。</p>
   </section>
 
-  <footer style="margin-top:4rem">
+  <footer class="footer">
     <small>&copy; 2025–2026 Sota Minokawa</small>
   </footer>
+
+  <div id="card-modal"><div id="card-modal-inner"></div></div>
+  <div id="lb"><img id="lb-img" alt=""></div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lb');
+      var lbImg = document.getElementById('lb-img');
+      var cardModal = document.getElementById('card-modal');
+      var cardModalInner = document.getElementById('card-modal-inner');
+
+      function openLightbox(img) {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lb.setAttribute('open', '');
+      }
+
+      function attachLightbox(scope) {
+        scope.querySelectorAll('img').forEach(function (img) {
+          img.classList.add('lb-trigger');
+          img.addEventListener('click', function (e) {
+            openLightbox(img);
+            e.stopPropagation();
+          });
+        });
+      }
+
+      document.querySelectorAll('.project-card').forEach(function (card) {
+        attachLightbox(card);
+        card.addEventListener('click', function () {
+          cardModalInner.innerHTML = card.innerHTML;
+          cardModalInner.querySelectorAll('img').forEach(function (img) {
+            img.removeAttribute('loading');
+          });
+          attachLightbox(cardModalInner);
+          cardModal.setAttribute('open', '');
+        });
+      });
+
+      cardModal.addEventListener('click', function (e) {
+        if (e.target === cardModal) cardModal.removeAttribute('open');
+      });
+
+      lb.addEventListener('click', function () {
+        lb.removeAttribute('open');
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        if (lb.hasAttribute('open')) lb.removeAttribute('open');
+        else cardModal.removeAttribute('open');
+      });
+    })();
+  </script>
 </body>
 </html>
