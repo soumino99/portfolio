@@ -100,6 +100,24 @@
     }
     .timeline-item .company { font-weight:700; font-size:1.05rem }
     .timeline-item .desc { margin:.4em 0 0 }
+    .intern-detail { margin-top:.8em }
+    .intern-detail summary {
+      cursor:pointer;
+      font-size:.85rem;
+      color:var(--blue);
+      user-select:none;
+    }
+    .intern-detail summary:hover { opacity:.75 }
+    .intern-detail-body {
+      margin-top:.6em;
+      padding:.8em 1em;
+      background:var(--card-bg);
+      border-radius:8px;
+      font-size:.9rem;
+    }
+    .intern-detail-body p { margin:.6em 0 .2em }
+    .intern-detail-body ul { margin:.2em 0 .6em; padding-left:1.4em }
+    .intern-detail-body li { margin-bottom:.25em }
 
     /* --- Project card --- */
     .project-card {
@@ -294,7 +312,31 @@
     <div class="timeline-item">
       <span class="date">2024年12月～2025年3月</span>
       <span class="company">株式会社油井コンサルティング</span>
-      <p class="desc">電子カルテデータに基づき、傷病名から処方薬剤を推測するナイーブベイズモデルを実装。病院の事務員が電子カルテや書類の不備を修正する際の参考情報として、確度の高い順に薬剤を表示する仕組みを構築。加えて、AccessデータベースからC#で分析用テーブルを生成するシステムも開発。</p>
+      <p class="desc">学部2年の冬、業務委託案件として参加。電子カルテデータに基づき、<strong>処方薬剤から傷病名を推測するナイーブベイズモデル</strong>を実装。クリニックの事務員による入力補助・入力漏れ確認を支援する補完機能として、傷病名候補を確率順に提示する仕組みを構築。加えて、AccessデータベースからC#で分析用テーブルを生成するシステムも開発。</p>
+      <details class="intern-detail">
+        <summary>技術詳細を見る</summary>
+        <div class="intern-detail-body">
+          <p><strong>なぜナイーブベイズを採用したか</strong></p>
+          <p>本案件は診断の自動化ではなく、事務員向けの補助機能であったため、以下の観点を重視した。</p>
+          <ul>
+            <li>軽量・実装容易で小規模データでも動作しやすい</li>
+            <li>薬剤と傷病名の共起頻度から確率的に推定するため解釈しやすい</li>
+          </ul>
+          <p>高精度化を目的とする場合は、ロジスティック回帰・LightGBM・多ラベル分類・Transformer系モデルも選択肢に上がるが、本件はカルテ本文ではなく処方薬剤などの表形式データが中心であり、まず確率順に候補を提示するシンプルな構成が現実的だった。</p>
+          <p><strong>課題</strong></p>
+          <ul>
+            <li>傷病名の出現頻度に偏りが大きく、希少な傷病名（例：10件程度）では1件の増減で確率推定が大きく変動する</li>
+            <li>学習データに存在しない薬剤との組み合わせは確率0となり、候補から完全に除外されてしまう</li>
+          </ul>
+          <p><strong>発展的な改善案</strong></p>
+          <ul>
+            <li>ラプラス平滑化：未出現組み合わせでも確率0にならないよう補正</li>
+            <li>低頻度ラベル統合：希少疾患を大分類へまとめて推定を安定化</li>
+            <li>ICD階層利用：傷病名コードの親子関係を活用した推定補助</li>
+            <li>多ラベル分類・LightGBM：複数疾患の同時予測や薬剤間の複雑な関係の学習</li>
+          </ul>
+        </div>
+      </details>
     </div>
 
     <div class="timeline-item">
