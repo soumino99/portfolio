@@ -336,6 +336,201 @@
       font-size: .9rem;
     }
 
+    .dataset-card {
+      margin-bottom: 28px;
+    }
+
+    .dataset-card .meta {
+      margin-bottom: 4px;
+    }
+
+    .method-figure {
+      display: flex;
+      align-items: stretch;
+      flex-wrap: nowrap;
+      gap: 8px;
+      margin: 22px 0 26px;
+      padding: 14px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .method-figure .mf-stage,
+    .method-figure .mf-branches,
+    .method-figure .mf-arrow {
+      flex-shrink: 0;
+    }
+
+    .mf-stage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      padding: 10px 12px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      min-width: 104px;
+    }
+
+    .mf-stage-label {
+      color: var(--accent-2);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .mf-stage-title {
+      font-size: .9rem;
+      font-weight: 720;
+      color: var(--ink);
+    }
+
+    .mf-stage-sub {
+      font-size: .76rem;
+      color: var(--muted);
+    }
+
+    .mf-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 1.1rem;
+      padding: 0 2px;
+    }
+
+    .mf-branches {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .mf-branch {
+      display: grid;
+      grid-template-columns: auto auto;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 10px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-size: .78rem;
+      white-space: nowrap;
+    }
+
+    .mf-dt {
+      color: var(--accent);
+      font-weight: 780;
+    }
+
+    .mf-score {
+      color: var(--deep);
+      font-weight: 760;
+      text-align: right;
+    }
+
+    .mf-branch-more {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .baseline-block {
+      margin: 22px 0 26px;
+    }
+
+    .baseline-block h4 {
+      margin: 0 0 12px;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 9px 16px;
+      margin: 0;
+    }
+
+    .spec-grid dt {
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .spec-grid dd {
+      margin: 0;
+      color: #3f474d;
+      font-size: .92rem;
+    }
+
+    .research-question {
+      margin: 22px 0 26px;
+      padding: 16px 20px;
+      border-left: 3px solid var(--accent);
+      background: rgba(29, 118, 111, .07);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .rq-label {
+      color: var(--accent);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .research-question p {
+      margin-top: 8px;
+      font-size: 1.04rem;
+      font-weight: 620;
+      color: var(--ink);
+    }
+
+    .exp-table-wrap {
+      margin: 22px 0 4px;
+      overflow-x: auto;
+    }
+
+    .exp-table {
+      width: 100%;
+      min-width: 480px;
+      border-collapse: collapse;
+      font-size: .88rem;
+    }
+
+    .exp-table th,
+    .exp-table td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .exp-table th {
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 760;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .exp-table td {
+      color: #3f474d;
+    }
+
+    .exp-table td:first-child {
+      font-weight: 680;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -515,7 +710,7 @@
       .research-feature,
       .project,
       .experience-item {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .hero-grid,
@@ -532,6 +727,32 @@
       .grid-2,
       .gallery {
         grid-template-columns: 1fr;
+      }
+
+      .method-figure {
+        flex-direction: column;
+      }
+
+      .mf-arrow {
+        transform: rotate(90deg);
+      }
+
+      .spec-grid {
+        grid-template-columns: 1fr;
+        gap: 2px 0;
+      }
+
+      .exp-table {
+        min-width: 0;
+      }
+
+      .exp-table th,
+      .exp-table td {
+        padding: 8px;
+      }
+
+      .spec-grid dd {
+        margin-bottom: 8px;
       }
 
       .section {
@@ -574,6 +795,19 @@
         color: #9ee1d8;
         background: rgba(108, 199, 185, .1);
         border-color: rgba(108, 199, 185, .28);
+      }
+
+      .spec-grid dd,
+      .exp-table td {
+        color: #d6dcd3;
+      }
+
+      .exp-table td:first-child {
+        color: var(--ink);
+      }
+
+      .research-question {
+        background: rgba(108, 199, 185, .1);
       }
     }
   </style>
@@ -643,13 +877,87 @@
           <p>静止画の外観検査ではなく、動画として観察しないと分からない作動状態の異常を対象としている。特に、送風機・転がり軸受・時計のような周期運動カテゴリで、従来手法の精度が低下する理由を定量的に分析し、改善することが現在の研究テーマである。</p>
         </div>
 
+        <article class="compact-card dataset-card">
+          <div class="meta">Dataset — Phys-AD (CVPR 2025)</div>
+          <p>22 カテゴリ・6,400 本超の動画からなる、物理的な動的異常を扱う industrial anomaly detection ベンチマーク。モーターやロボットアームなど、作動中の状態を見なければ判別できない異常を含む。</p>
+        </article>
+
         <div class="research-feature">
           <article class="research-main">
             <div class="meta">卒業研究計画 | 谷口研究室 | 2026</div>
             <h3>複数時間スケールを用いた製品の作動状態異常検知</h3>
             <p>製造業では、検査工程の自動化が求められる一方で、異常データを十分に集めることは難しい。そこで、正常動画のみを学習に用いる異常検知として、作動中の製品動画から微小動作や周期応答の乱れを検出する手法を検討している。</p>
-            <p>ここでいう複数時間スケールの統合とは、参照フレーム間隔の異なる複数モデルを用い、短い時間変化と長い周期変化の両方から異常スコアを統合する方針である。前年度の谷口研究室の手法をベースラインとして追試し、その挙動を診断するところから研究を始めている。</p>
-            <p>現在取り組んでいるのは、この手法の性能向上が「複数の時間スケールを使ったこと」によるのか、「単にモデル数が増えたことによる効果」によるのかを切り分けることである。あわせて、周期的な回転運動を伴うカテゴリで精度が落ちる原因についても、カテゴリごとに個別に分析を進めている。</p>
+
+            <div class="method-figure" aria-label="手法の模式図: 複数時間スケールの統合">
+              <div class="mf-stage mf-input">
+                <span class="mf-stage-label">Input</span>
+                <span class="mf-stage-title">正常動画のみ</span>
+              </div>
+              <div class="mf-arrow">→</div>
+              <div class="mf-branches">
+                <div class="mf-branch">
+                  <span class="mf-dt">Δt = 1</span>
+                  <span class="mf-score">s₁</span>
+                </div>
+                <div class="mf-branch">
+                  <span class="mf-dt">Δt = 2</span>
+                  <span class="mf-score">s₂</span>
+                </div>
+                <div class="mf-branch mf-branch-more">
+                  <span class="mf-dt">Δt = 3–6</span>
+                  <span class="mf-score">…</span>
+                </div>
+              </div>
+              <div class="mf-arrow">→</div>
+              <div class="mf-stage mf-fusion">
+                <span class="mf-stage-label">Fusion</span>
+                <span class="mf-stage-title">Mahalanobis 距離</span>
+                <span class="mf-stage-sub">正常分布 μ, Σ からの距離</span>
+              </div>
+              <div class="mf-arrow">→</div>
+              <div class="mf-stage mf-output">
+                <span class="mf-stage-label">Output</span>
+                <span class="mf-stage-title">Anomaly score</span>
+              </div>
+            </div>
+
+            <div class="baseline-block">
+              <h4>Baseline</h4>
+              <dl class="spec-grid">
+                <dt>入力</dt>
+                <dd>256×256、参照 4 フレーム→ 1 フレーム予測（t_length=5）</dd>
+                <dt>ベースモデル</dt>
+                <dd>MNAD（pred モード、未来フレーム予測）</dd>
+                <dt>フレーム異常度</dt>
+                <dd>PSNR 系成分と feature distance を alpha=0.6 で加重</dd>
+                <dt>時間スケール</dt>
+                <dd>参照フレーム間隔（stride）1〜6 それぞれで独立学習したモデル</dd>
+                <dt>統合・評価</dt>
+                <dd>各モデルの動画スコアを K 次元ベクトル化し、正常分布からの Mahalanobis 距離を AUROC で評価</dd>
+              </dl>
+            </div>
+
+            <div class="research-question">
+              <div class="rq-label">Research Question</div>
+              <p>性能向上は「複数の時間スケールを観測したこと」によるのか、それとも「単にモデル数が増えたことによるアンサンブル効果」によるのか。</p>
+            </div>
+
+            <p>前年度の谷口研究室の手法をベースラインとして追試し、その挙動を診断するところから研究を始めている。周期的な回転運動を伴うカテゴリで精度が落ちる原因についても、カテゴリごとに個別に分析を進めている。</p>
+
+            <div class="exp-table-wrap">
+              <table class="exp-table">
+                <thead>
+                  <tr><th>条件</th><th>目的</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Single Δt</td><td>単一の時間スケールでの性能を基準として確認する。</td></tr>
+                  <tr><td>Same-scale ensemble</td><td>時間スケールを揃えたままモデル数だけ増やした場合の効果を見る。</td></tr>
+                  <tr><td>Multi-scale ensemble</td><td>時間スケールを多様化した場合の効果を見る。</td></tr>
+                  <tr><td>カテゴリ別分析</td><td>周期運動カテゴリに特有の失敗条件を切り分ける。</td></tr>
+                </tbody>
+              </table>
+            </div>
+
             <p>卒業研究では、この要因分析を踏まえたうえで、周期運動カテゴリでも精度が落ちにくい、複数時間スケールを用いた統合手法を提案するところまで持っていきたいと考えている。</p>
             <div class="tag-row">
               <span class="tag">video anomaly detection</span>
@@ -660,16 +968,20 @@
 
           <aside class="metric-panel" aria-label="研究の進め方">
             <div class="metric">
-              <strong>Diagnose</strong>
-              <span>前年度手法を追試し、うまくいく場合／いかない場合を切り分ける。</span>
+              <strong>Reproduced</strong>
+              <span>前年度手法を Phys-AD 上で追試し、動作を確認した。</span>
             </div>
             <div class="metric">
-              <strong>Isolate</strong>
-              <span>効いている要因（時間スケール／モデル数）を実験で分離する。</span>
+              <strong>Diagnosed</strong>
+              <span>カテゴリ・stride 別に、精度が落ちる条件を分析している。</span>
             </div>
             <div class="metric">
-              <strong>Propose</strong>
-              <span>卒論として、周期運動カテゴリに強い統合手法を提案する。</span>
+              <strong>Isolating</strong>
+              <span>時間スケール効果とアンサンブル効果を、パイロット実験で切り分けている。</span>
+            </div>
+            <div class="metric">
+              <strong>Developing</strong>
+              <span>卒論として、周期運動カテゴリに強い統合手法を検討中。</span>
             </div>
           </aside>
         </div>
