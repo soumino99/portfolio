@@ -596,8 +596,8 @@
       <div class="wrap hero-grid">
         <div>
           <span class="eyebrow">Computer Vision / Anomaly Detection</span>
-          <h1>工業製品の作動状態異常検知を軸に、医療画像解析への応用を見据える。</h1>
-          <p class="lead">東京理科大学 工学部情報工学科、谷口研究室所属。正常データのみで学習できる動画異常検知を研究しています。現在は、周期運動を伴う工業製品カテゴリでの失敗原因分析と改善に取り組んでいます。時系列データにおける異常検知の考え方は、医療画像における病変検出とも接続できると考えています。</p>
+          <h1>工業製品の動画・時系列異常検知</h1>
+          <p class="lead">東京理科大学 工学部情報工学科、谷口研究室所属。正常動画のみを用いて学習する動画異常検知を研究しています。現在は、周期運動を伴う工業製品カテゴリでの失敗原因分析と改善に取り組んでいます。</p>
           <div class="hero-actions">
             <a class="button" href="#research">研究を見る</a>
             <a class="button secondary" href="#works">開発実績を見る</a>
@@ -608,24 +608,24 @@
           <div class="panel-label">Research Focus</div>
           <div class="focus-list">
             <div class="focus-item">
-              <div class="focus-kicker">Current</div>
+              <div class="focus-kicker">Now</div>
               <div>
-                <h3>作動状態異常検知</h3>
-                <p>周期運動を伴う製品カテゴリで、時間スケールや周波数特徴をどう扱うか。</p>
+                <h3>先行手法の追試・診断</h3>
+                <p>前年度手法を追試し、周期運動カテゴリで精度が落ちる原因を切り分けている段階。</p>
               </div>
             </div>
             <div class="focus-item">
-              <div class="focus-kicker">Approach</div>
+              <div class="focus-kicker">Why</div>
               <div>
-                <h3>再現実験と失敗分析</h3>
-                <p>既存手法の挙動を確認し、精度が落ちるカテゴリで原因を切り分ける。</p>
+                <h3>効いている要因の切り分け</h3>
+                <p>性能向上が時間スケールの多様化によるものか、モデル数増加による効果かを整理中。</p>
               </div>
             </div>
             <div class="focus-item">
-              <div class="focus-kicker">Baseline</div>
+              <div class="focus-kicker">Goal</div>
               <div>
-                <h3>平均 AUROC 82%</h3>
-                <p>昨年度手法の基準値を起点に、周期運動カテゴリでの改善を評価する。</p>
+                <h3>周期運動に強い手法へ</h3>
+                <p>卒業研究として、周期運動カテゴリでも安定する異常検知手法の提案まで持っていきたい。</p>
               </div>
             </div>
           </div>
@@ -646,31 +646,30 @@
         <div class="research-feature">
           <article class="research-main">
             <div class="meta">卒業研究計画 | 谷口研究室 | 2026</div>
-            <h3>マルチスケール統合に基づく製品の作動状態異常検知</h3>
-            <p>製造業では、検査工程の自動化が求められる一方で、異常データを十分に集めることは難しい。そこで、正常データのみで学習可能な教師なし異常検知として、作動中の製品動画から微小動作や周期応答の乱れを検出する手法を検討している。</p>
-            <p>ここでいうマルチスケール統合とは、参照フレーム間隔の異なる複数モデルを用い、短い時間変化と長い周期変化の両方から異常スコアを統合する方針である。昨年度手法では、Sparse-MNAD を基盤にこの統合を行うことで平均 AUROC 82% を達成した。</p>
-            <p>一方、周期的な回転運動を伴うカテゴリでは精度低下が確認されており、時間軸エイリアシングや特徴量の不足が原因として考えられる。</p>
-            <p>再現実験と失敗例分析を踏まえ、周波数領域特徴の追加、疑似異常データを用いた統合方法の学習、回転位相に基づくリサンプリングなどの手法を比較し、周期運動に強い作動異常検知を目指す。</p>
+            <h3>複数時間スケールを用いた製品の作動状態異常検知</h3>
+            <p>製造業では、検査工程の自動化が求められる一方で、異常データを十分に集めることは難しい。そこで、正常動画のみを学習に用いる異常検知として、作動中の製品動画から微小動作や周期応答の乱れを検出する手法を検討している。</p>
+            <p>ここでいう複数時間スケールの統合とは、参照フレーム間隔の異なる複数モデルを用い、短い時間変化と長い周期変化の両方から異常スコアを統合する方針である。前年度の谷口研究室の手法をベースラインとして追試し、その挙動を診断するところから研究を始めている。</p>
+            <p>現在取り組んでいるのは、この手法の性能向上が「複数の時間スケールを使ったこと」によるのか、「単にモデル数が増えたことによる効果」によるのかを切り分けることである。あわせて、周期的な回転運動を伴うカテゴリで精度が落ちる原因についても、カテゴリごとに個別に分析を進めている。</p>
+            <p>卒業研究では、この要因分析を踏まえたうえで、周期運動カテゴリでも精度が落ちにくい、複数時間スケールを用いた統合手法を提案するところまで持っていきたいと考えている。</p>
             <div class="tag-row">
               <span class="tag">video anomaly detection</span>
               <span class="tag">unsupervised learning</span>
-              <span class="tag">multi-scale integration</span>
-              <span class="tag">frequency analysis</span>
+              <span class="tag">multi-temporal-scale integration</span>
             </div>
           </article>
 
-          <aside class="metric-panel" aria-label="研究目標">
+          <aside class="metric-panel" aria-label="研究の進め方">
             <div class="metric">
-              <strong>82%</strong>
-              <span>昨年度手法の平均 AUROC。これを基準に、周期運動カテゴリでの精度改善を狙う。</span>
+              <strong>Diagnose</strong>
+              <span>前年度手法を追試し、うまくいく場合／いかない場合を切り分ける。</span>
             </div>
             <div class="metric">
-              <strong>25%</strong>
-              <span>Sparse-MNAD のモデル数を 25% 削減し、処理速度の改善も評価する。</span>
+              <strong>Isolate</strong>
+              <span>効いている要因（時間スケール／モデル数）を実験で分離する。</span>
             </div>
             <div class="metric">
-              <strong>Normal only</strong>
-              <span>異常データ収集が難しい現場を想定し、正常データのみで学習可能な制約を維持する。</span>
+              <strong>Propose</strong>
+              <span>卒論として、周期運動カテゴリに強い統合手法を提案する。</span>
             </div>
           </aside>
         </div>
@@ -684,7 +683,6 @@
             <span class="eyebrow">Works</span>
             <h2>開発実績</h2>
           </div>
-          <p>ここには、完了済み、または外部に説明できる開発実績を置いています。研究テーマや将来の関心とは分け、問題設定、実装範囲、ユーザーの行動を促す設計が見えるものを中心に整理しています。</p>
         </div>
 
         <div class="projects">
@@ -749,7 +747,6 @@
             <span class="eyebrow">Experience</span>
             <h2>経験</h2>
           </div>
-          <p>インターン歴は、肩書きの羅列ではなく、研究・実装・業務理解のどこにつながるかが分かるように圧縮しています。</p>
         </div>
 
         <div class="experience-list">
@@ -806,7 +803,7 @@
           <p>Research-oriented, product-aware.</p>
         </div>
         <p class="closing">今の主軸は、研究として深掘りしている工業製品の動画・時系列異常検知です。インターンや個人開発で得た実装力を、今後は研究テーマの検証やプロダクト実装に接続していきたいと考えています。</p>
-        <p class="closing">修士では、この時系列異常検知の考え方を医療画像解析に応用する方向へ軸足を移したいと考えています。少数データ下での異常検知や、病変候補の検出支援のような課題に関心があります。</p>
+        <p class="closing">修士からは、動画で扱っている時間変化のモデル化を、経時医用画像における病変の出現・変化検出へ発展させます。少数データ下での異常検知や、病変候補の検出支援のような課題に取り組む予定です。</p>
       </div>
     </section>
   </main>
