@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <title>Sota Minokawa | Research & Product Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="箕川創太のポートフォリオ。作動状態異常検知、コンピュータビジョン、医療画像解析、AIプロダクト開発。">
+  <meta name="description" content="箕川創太のポートフォリオ。Physics-grounded Video Anomaly Detection、コンピュータビジョン、医療画像解析、AIプロダクト開発。">
   <meta property="og:title" content="Sota Minokawa | Research & Product Portfolio">
-  <meta property="og:description" content="Industrial anomaly detection, medical image analysis, and AI product engineering.">
+  <meta property="og:description" content="Physics-grounded video anomaly detection, computer vision research, and AI product engineering.">
   <meta property="og:type" content="website">
   <style>
     :root {
@@ -138,7 +138,7 @@
 
     h1 {
       max-width: 820px;
-      font-size: clamp(2.45rem, 6vw, 5.6rem);
+      font-size: clamp(2.1rem, 4.4vw, 3.6rem);
       font-weight: 780;
     }
 
@@ -157,6 +157,18 @@
       margin-top: 24px;
       color: #41494f;
       font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+    }
+
+    .hero-byline {
+      margin: 0 0 16px;
+      font-size: 1.08rem;
+      font-weight: 750;
+      color: var(--ink);
+    }
+
+    .hero-byline-jp {
+      color: var(--muted);
+      font-weight: 600;
     }
 
     .hero-actions {
@@ -249,15 +261,7 @@
       max-width: 690px;
     }
 
-    .research-feature {
-      display: grid;
-      grid-template-columns: minmax(0, .95fr) minmax(300px, .55fr);
-      gap: 28px;
-      align-items: stretch;
-    }
-
     .research-main,
-    .metric-panel,
     .project,
     .experience-item,
     .compact-card {
@@ -305,43 +309,13 @@
       font-weight: 690;
     }
 
-    .metric-panel {
-      padding: 28px;
-      display: grid;
-      align-content: start;
-      gap: 18px;
-    }
-
-    .metric {
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-    }
-
-    .metric:first-child {
-      padding-top: 0;
-      border-top: 0;
-    }
-
-    .metric strong {
-      display: block;
-      color: var(--deep);
-      font-size: 1.55rem;
-      line-height: 1.1;
-    }
-
-    .metric span {
-      display: block;
-      margin-top: 7px;
+    .block-label {
+      margin: 24px 0 8px;
       color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .dataset-card {
-      margin-bottom: 28px;
-    }
-
-    .dataset-card .meta {
-      margin-bottom: 4px;
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
     }
 
     .method-figure {
@@ -357,41 +331,27 @@
       overflow-x: auto;
     }
 
-    .method-figure .mf-stage,
-    .method-figure .mf-branches,
-    .method-figure .mf-arrow {
+    .mf-stage,
+    .mf-arrow {
       flex-shrink: 0;
     }
 
     .mf-stage {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      gap: 3px;
-      padding: 10px 12px;
+      text-align: center;
+      padding: 14px 16px;
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 6px;
-      min-width: 104px;
-    }
-
-    .mf-stage-label {
-      color: var(--accent-2);
-      font-size: .68rem;
-      font-weight: 800;
-      letter-spacing: .1em;
-      text-transform: uppercase;
+      min-width: 150px;
     }
 
     .mf-stage-title {
-      font-size: .9rem;
+      font-size: .88rem;
       font-weight: 720;
       color: var(--ink);
-    }
-
-    .mf-stage-sub {
-      font-size: .76rem;
-      color: var(--muted);
     }
 
     .mf-arrow {
@@ -401,74 +361,6 @@
       color: var(--muted);
       font-size: 1.1rem;
       padding: 0 2px;
-    }
-
-    .mf-branches {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    .mf-branch {
-      display: grid;
-      grid-template-columns: auto auto;
-      align-items: center;
-      gap: 12px;
-      padding: 6px 10px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      font-size: .78rem;
-      white-space: nowrap;
-    }
-
-    .mf-dt {
-      color: var(--accent);
-      font-weight: 780;
-    }
-
-    .mf-score {
-      color: var(--deep);
-      font-weight: 760;
-      text-align: right;
-    }
-
-    .mf-branch-more {
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    .baseline-block {
-      margin: 22px 0 26px;
-    }
-
-    .baseline-block h4 {
-      margin: 0 0 12px;
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .spec-grid {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 9px 16px;
-      margin: 0;
-    }
-
-    .spec-grid dt {
-      color: var(--muted);
-      font-size: .82rem;
-      font-weight: 700;
-    }
-
-    .spec-grid dd {
-      margin: 0;
-      color: #3f474d;
-      font-size: .92rem;
     }
 
     .research-question {
@@ -494,43 +386,6 @@
       color: var(--ink);
     }
 
-    .exp-table-wrap {
-      margin: 22px 0 4px;
-      overflow-x: auto;
-    }
-
-    .exp-table {
-      width: 100%;
-      min-width: 480px;
-      border-collapse: collapse;
-      font-size: .88rem;
-    }
-
-    .exp-table th,
-    .exp-table td {
-      text-align: left;
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .exp-table th {
-      color: var(--muted);
-      font-size: .74rem;
-      font-weight: 760;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-    }
-
-    .exp-table td {
-      color: #3f474d;
-    }
-
-    .exp-table td:first-child {
-      font-weight: 680;
-      color: var(--ink);
-      white-space: nowrap;
-    }
-
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -545,6 +400,19 @@
       margin-top: 10px;
       color: var(--muted);
       font-size: .95rem;
+    }
+
+    .repo-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--accent);
+      font-size: .84rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .repo-link:hover {
+      text-decoration: underline;
     }
 
     .projects {
@@ -707,7 +575,6 @@
 
       .hero-grid,
       .section-head,
-      .research-feature,
       .project,
       .experience-item {
         grid-template-columns: minmax(0, 1fr);
@@ -735,24 +602,6 @@
 
       .mf-arrow {
         transform: rotate(90deg);
-      }
-
-      .spec-grid {
-        grid-template-columns: 1fr;
-        gap: 2px 0;
-      }
-
-      .exp-table {
-        min-width: 0;
-      }
-
-      .exp-table th,
-      .exp-table td {
-        padding: 8px;
-      }
-
-      .spec-grid dd {
-        margin-bottom: 8px;
       }
 
       .section {
@@ -797,15 +646,6 @@
         border-color: rgba(108, 199, 185, .28);
       }
 
-      .spec-grid dd,
-      .exp-table td {
-        color: #d6dcd3;
-      }
-
-      .exp-table td:first-child {
-        color: var(--ink);
-      }
-
       .research-question {
         background: rgba(108, 199, 185, .1);
       }
@@ -821,6 +661,7 @@
         <a href="#works">Works</a>
         <a href="#experience">Experience</a>
         <a href="#next">Next</a>
+        <a href="https://github.com/soumino99" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </nav>
@@ -829,9 +670,10 @@
     <header class="hero">
       <div class="wrap hero-grid">
         <div>
-          <span class="eyebrow">Computer Vision / Anomaly Detection</span>
-          <h1>工業製品の動画・時系列異常検知</h1>
-          <p class="lead">東京理科大学 工学部情報工学科、谷口研究室所属。正常動画のみを用いて学習する動画異常検知を研究しています。現在は、周期運動を伴う工業製品カテゴリでの失敗原因分析と改善に取り組んでいます。</p>
+          <p class="hero-byline">Sota Minokawa <span class="hero-byline-jp">/ 箕川創太</span></p>
+          <span class="eyebrow">Computer Vision Researcher &amp; AI Engineer</span>
+          <h1>Physics-Grounded Video Anomaly Detection</h1>
+          <p class="lead">東京理科大学 工学部情報工学科、谷口研究室所属。2027 年 4 月より東京大学大学院 情報理工学系研究科 創造情報学専攻に進学予定です。</p>
           <div class="hero-actions">
             <a class="button" href="#research">研究を見る</a>
             <a class="button secondary" href="#works">開発実績を見る</a>
@@ -842,24 +684,24 @@
           <div class="panel-label">Research Focus</div>
           <div class="focus-list">
             <div class="focus-item">
-              <div class="focus-kicker">Now</div>
+              <div class="focus-kicker">Problem</div>
               <div>
-                <h3>先行手法の追試・診断</h3>
-                <p>前年度手法を追試し、周期運動カテゴリで精度が落ちる原因を切り分けている段階。</p>
+                <h3>外観だけでは判断できない異常</h3>
+                <p>見た目は正常でも、動き方や物体同士の相互作用が不自然な場合がある。</p>
               </div>
             </div>
             <div class="focus-item">
               <div class="focus-kicker">Why</div>
               <div>
-                <h3>効いている要因の切り分け</h3>
-                <p>性能向上が時間スケールの多様化によるものか、モデル数増加による効果かを整理中。</p>
+                <h3>動き・相互作用・時間の理解が必要</h3>
+                <p>Motion / Interaction / Temporal State を理解して初めて異常が判断できる。</p>
               </div>
             </div>
             <div class="focus-item">
-              <div class="focus-kicker">Goal</div>
+              <div class="focus-kicker">Vision</div>
               <div>
-                <h3>周期運動に強い手法へ</h3>
-                <p>卒業研究として、周期運動カテゴリでも安定する異常検知手法の提案まで持っていきたい。</p>
+                <h3>物理的に不自然な挙動を検出する</h3>
+                <p>動画から動的・物理的な状態を理解し、異常を検出できるモデルを目指している。</p>
               </div>
             </div>
           </div>
@@ -874,117 +716,43 @@
             <span class="eyebrow">Research</span>
             <h2>研究テーマ</h2>
           </div>
-          <p>静止画の外観検査ではなく、動画として観察しないと分からない作動状態の異常を対象としている。特に、送風機・転がり軸受・時計のような周期運動カテゴリで、従来手法の精度が低下する理由を定量的に分析し、改善することが現在の研究テーマである。</p>
+          <p>Phys-AD を対象に、見た目は正常でも動き方や相互作用が不自然な「動的・物理的な異常」の理解と検出に取り組んでいる。</p>
         </div>
 
-        <article class="compact-card dataset-card">
-          <div class="meta">Dataset — Phys-AD (CVPR 2025)</div>
-          <p>22 カテゴリ・6,400 本超の動画からなる、物理的な動的異常を扱う industrial anomaly detection ベンチマーク。モーターやロボットアームなど、作動中の状態を見なければ判別できない異常を含む。</p>
+        <article class="research-main">
+          <div class="meta">卒業研究 | 谷口研究室 | 2026</div>
+          <h3>Physics-Grounded Video Anomaly Detection</h3>
+          <p>Phys-AD が提示する重要な問題は、外観だけでは異常を判断できないケースがあることである。物体の見た目は正常でも、動くタイミングや速度・周期がおかしい場合、物体同士の相互作用が不自然な場合、動画全体としての状態遷移が異常な場合がある。</p>
+
+          <div class="block-label">Challenge</div>
+          <p>appearance を見るだけでは、こうした異常は判断できない。Motion（動き）・Interaction（相互作用）・Temporal State（時間的な状態）を理解して初めて、物理的に不自然な挙動として異常を検出できる。</p>
+
+          <div class="method-figure" aria-label="研究の考え方の模式図">
+            <div class="mf-stage"><span class="mf-stage-title">Video</span></div>
+            <div class="mf-arrow">→</div>
+            <div class="mf-stage"><span class="mf-stage-title">Motion / Interaction / Temporal State</span></div>
+            <div class="mf-arrow">→</div>
+            <div class="mf-stage"><span class="mf-stage-title">Physical Understanding</span></div>
+            <div class="mf-arrow">→</div>
+            <div class="mf-stage"><span class="mf-stage-title">Anomaly Detection</span></div>
+          </div>
+
+          <div class="research-question">
+            <div class="rq-label">Research Question</div>
+            <p>How can machines understand whether objects are behaving as expected, rather than merely looking normal?</p>
+          </div>
+
+          <div class="block-label">Direction</div>
+          <p>現在は、動画から動き・相互作用・時間的な状態をどのように表現・理解するべきかを探索している段階である。事前学習済みの動画モデルや VLM なども候補になり得るが、具体的な手法はまだ確定していない。</p>
+
+          <p>Phys-AD 上では、既存の動画異常検知手法を再現・分析し、動的・物理的な異常に対する限界を確認した。</p>
+
+          <div class="tag-row">
+            <span class="tag">video anomaly detection</span>
+            <span class="tag">physical dynamics</span>
+            <span class="tag">visual understanding</span>
+          </div>
         </article>
-
-        <div class="research-feature">
-          <article class="research-main">
-            <div class="meta">卒業研究計画 | 谷口研究室 | 2026</div>
-            <h3>複数時間スケールを用いた製品の作動状態異常検知</h3>
-            <p>製造業では、検査工程の自動化が求められる一方で、異常データを十分に集めることは難しい。そこで、正常動画のみを学習に用いる異常検知として、作動中の製品動画から微小動作や周期応答の乱れを検出する手法を検討している。</p>
-
-            <div class="method-figure" aria-label="手法の模式図: 複数時間スケールの統合">
-              <div class="mf-stage mf-input">
-                <span class="mf-stage-label">Input</span>
-                <span class="mf-stage-title">正常動画のみ</span>
-              </div>
-              <div class="mf-arrow">→</div>
-              <div class="mf-branches">
-                <div class="mf-branch">
-                  <span class="mf-dt">Δt = 1</span>
-                  <span class="mf-score">s₁</span>
-                </div>
-                <div class="mf-branch">
-                  <span class="mf-dt">Δt = 2</span>
-                  <span class="mf-score">s₂</span>
-                </div>
-                <div class="mf-branch mf-branch-more">
-                  <span class="mf-dt">Δt = 3–6</span>
-                  <span class="mf-score">…</span>
-                </div>
-              </div>
-              <div class="mf-arrow">→</div>
-              <div class="mf-stage mf-fusion">
-                <span class="mf-stage-label">Fusion</span>
-                <span class="mf-stage-title">Mahalanobis 距離</span>
-                <span class="mf-stage-sub">正常分布 μ, Σ からの距離</span>
-              </div>
-              <div class="mf-arrow">→</div>
-              <div class="mf-stage mf-output">
-                <span class="mf-stage-label">Output</span>
-                <span class="mf-stage-title">Anomaly score</span>
-              </div>
-            </div>
-
-            <div class="baseline-block">
-              <h4>Baseline</h4>
-              <dl class="spec-grid">
-                <dt>入力</dt>
-                <dd>256×256、参照 4 フレーム→ 1 フレーム予測（t_length=5）</dd>
-                <dt>ベースモデル</dt>
-                <dd>MNAD（pred モード、未来フレーム予測）</dd>
-                <dt>フレーム異常度</dt>
-                <dd>PSNR 系成分と feature distance を alpha=0.6 で加重</dd>
-                <dt>時間スケール</dt>
-                <dd>参照フレーム間隔（stride）1〜6 それぞれで独立学習したモデル</dd>
-                <dt>統合・評価</dt>
-                <dd>各モデルの動画スコアを K 次元ベクトル化し、正常分布からの Mahalanobis 距離を AUROC で評価</dd>
-              </dl>
-            </div>
-
-            <div class="research-question">
-              <div class="rq-label">Research Question</div>
-              <p>性能向上は「複数の時間スケールを観測したこと」によるのか、それとも「単にモデル数が増えたことによるアンサンブル効果」によるのか。</p>
-            </div>
-
-            <p>前年度の谷口研究室の手法をベースラインとして追試し、その挙動を診断するところから研究を始めている。周期的な回転運動を伴うカテゴリで精度が落ちる原因についても、カテゴリごとに個別に分析を進めている。</p>
-
-            <div class="exp-table-wrap">
-              <table class="exp-table">
-                <thead>
-                  <tr><th>条件</th><th>目的</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>Single Δt</td><td>単一の時間スケールでの性能を基準として確認する。</td></tr>
-                  <tr><td>Same-scale ensemble</td><td>時間スケールを揃えたままモデル数だけ増やした場合の効果を見る。</td></tr>
-                  <tr><td>Multi-scale ensemble</td><td>時間スケールを多様化した場合の効果を見る。</td></tr>
-                  <tr><td>カテゴリ別分析</td><td>周期運動カテゴリに特有の失敗条件を切り分ける。</td></tr>
-                </tbody>
-              </table>
-            </div>
-
-            <p>卒業研究では、この要因分析を踏まえたうえで、周期運動カテゴリでも精度が落ちにくい、複数時間スケールを用いた統合手法を提案するところまで持っていきたいと考えている。</p>
-            <div class="tag-row">
-              <span class="tag">video anomaly detection</span>
-              <span class="tag">unsupervised learning</span>
-              <span class="tag">multi-temporal-scale integration</span>
-            </div>
-          </article>
-
-          <aside class="metric-panel" aria-label="研究の進め方">
-            <div class="metric">
-              <strong>Reproduced</strong>
-              <span>前年度手法を Phys-AD 上で追試し、動作を確認した。</span>
-            </div>
-            <div class="metric">
-              <strong>Diagnosed</strong>
-              <span>カテゴリ・stride 別に、精度が落ちる条件を分析している。</span>
-            </div>
-            <div class="metric">
-              <strong>Isolating</strong>
-              <span>時間スケール効果とアンサンブル効果を、パイロット実験で切り分けている。</span>
-            </div>
-            <div class="metric">
-              <strong>Developing</strong>
-              <span>卒論として、周期運動カテゴリに強い統合手法を検討中。</span>
-            </div>
-          </aside>
-        </div>
       </div>
     </section>
 
@@ -1046,6 +814,7 @@
               <div class="meta">2025 Spring | Flask</div>
               <h3>UniChat</h3>
               <p>Web 開発の学習を兼ねて開発した掲示板アプリ。Flask サーバからの静的ファイル配信、最低限の認証機能、掲示板機能を実装しました。</p>
+              <a class="repo-link" href="https://github.com/soumino99/02-unichat" target="_blank" rel="noopener">GitHub ↗</a>
             </article>
           </div>
         </div>
@@ -1114,8 +883,8 @@
           </div>
           <p>Research-oriented, product-aware.</p>
         </div>
-        <p class="closing">今の主軸は、研究として深掘りしている工業製品の動画・時系列異常検知です。インターンや個人開発で得た実装力を、今後は研究テーマの検証やプロダクト実装に接続していきたいと考えています。</p>
-        <p class="closing">修士からは、研究の場を医用画像処理に移します。</p>
+        <p class="closing">学部では、Computer Vision を用いて実世界の状態理解・異常検知に取り組んでいます。インターンや個人開発で得た実装力を、今後は研究テーマの検証やプロダクト実装に接続していきたいと考えています。</p>
+        <p class="closing">修士では、この Computer Vision / representation learning の軸を保ちながら、研究対象を医用画像解析へ広げる予定です。</p>
       </div>
     </section>
   </main>
