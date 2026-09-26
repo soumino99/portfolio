@@ -722,17 +722,16 @@
         <article class="research-main">
           <div class="meta">卒業研究 | 谷口研究室 | 2026</div>
           <h3>Physics-Grounded Video Anomaly Detection</h3>
-          <p>Phys-AD が提示する重要な問題は、外観だけでは異常を判断できないケースがあることである。物体の見た目は正常でも、動くタイミングや速度・周期がおかしい場合、物体同士の相互作用が不自然な場合、動画全体としての状態遷移が異常な場合がある。</p>
 
-          <div class="block-label">Challenge</div>
-          <p>appearance を見るだけでは、こうした異常は判断できない。Motion（動き）・Interaction（相互作用）・Temporal State（時間的な状態）を理解して初めて、物理的に不自然な挙動として異常を検出できる。</p>
+          <div class="block-label">Problem</div>
+          <p>Phys-AD が対象とするのは、外観だけでは判断できない異常である。物体の見た目が正常でも、動き方やタイミング、物体同士の相互作用、動画全体としての状態遷移が不自然な場合があり、Motion・Interaction・Temporal State を理解して初めて異常だと判断できる。</p>
 
           <div class="method-figure" aria-label="研究の考え方の模式図">
             <div class="mf-stage"><span class="mf-stage-title">Video</span></div>
             <div class="mf-arrow">→</div>
-            <div class="mf-stage"><span class="mf-stage-title">Motion / Interaction / Temporal State</span></div>
+            <div class="mf-stage"><span class="mf-stage-title">Motion / Interaction / State</span></div>
             <div class="mf-arrow">→</div>
-            <div class="mf-stage"><span class="mf-stage-title">Physical Understanding</span></div>
+            <div class="mf-stage"><span class="mf-stage-title">Dynamics Understanding</span></div>
             <div class="mf-arrow">→</div>
             <div class="mf-stage"><span class="mf-stage-title">Anomaly Detection</span></div>
           </div>
@@ -743,9 +742,7 @@
           </div>
 
           <div class="block-label">Direction</div>
-          <p>現在は、動画から動き・相互作用・時間的な状態をどのように表現・理解するべきかを探索している段階である。事前学習済みの動画モデルや VLM なども候補になり得るが、具体的な手法はまだ確定していない。</p>
-
-          <p>Phys-AD 上では、既存の動画異常検知手法を再現・分析し、動的・物理的な異常に対する限界を確認した。</p>
+          <p>動画から物体の動き・相互作用・時間的状態をどのように表現し、物理的な異常の判断につなげるかを検討している。</p>
 
           <div class="tag-row">
             <span class="tag">video anomaly detection</span>
