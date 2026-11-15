@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <title>Sota Minokawa | Research & Product Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="箕川創太のポートフォリオ。Physics-grounded Video Anomaly Detection、コンピュータビジョン、医療画像解析、AIプロダクト開発。">
+  <meta name="description" content="箕川創太のポートフォリオ。製品作動動画の異常検知における時間スケールの研究、コンピュータビジョン、AIプロダクト開発。">
   <meta property="og:title" content="Sota Minokawa | Research & Product Portfolio">
-  <meta property="og:description" content="Physics-grounded video anomaly detection, computer vision research, and AI product engineering.">
+  <meta property="og:description" content="Temporal scale in video anomaly detection, computer vision research, and AI product engineering.">
   <meta property="og:type" content="website">
   <style>
     :root {
@@ -547,6 +547,325 @@
       cursor: default;
     }
 
+    /* Research: hypothesis-driven story */
+    .rs-subtitle {
+      margin-top: 6px;
+      color: var(--muted) !important;
+      font-size: .95rem;
+    }
+
+    .research-question .rq-sub {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 500;
+    }
+
+    .rs-step {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .rs-step-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 12px;
+      margin-bottom: 12px;
+    }
+
+    .rs-num {
+      color: var(--accent-2);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .rs-step-head h4 {
+      margin: 0;
+      font-size: 1.08rem;
+      font-weight: 760;
+      line-height: 1.4;
+    }
+
+    .badge {
+      padding: 2px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .badge.repro {
+      color: var(--muted);
+      background: var(--surface-2);
+    }
+
+    .badge.own {
+      color: var(--accent);
+      border-color: rgba(29, 118, 111, .42);
+      background: rgba(29, 118, 111, .07);
+    }
+
+    .hypotheses {
+      display: grid;
+      gap: 8px;
+      margin: 4px 0 16px;
+    }
+
+    .hypotheses > div {
+      display: grid;
+      grid-template-columns: 2.6rem minmax(0, 1fr);
+      gap: 8px;
+      padding: 11px 16px;
+      background: var(--surface-2);
+      border-radius: 6px;
+      font-weight: 620;
+    }
+
+    .hypotheses b {
+      color: var(--accent);
+    }
+
+    .rs-figure {
+      margin: 22px 0 8px;
+    }
+
+    .rs-figure.narrow {
+      max-width: 780px;
+    }
+
+    .rs-frame {
+      padding: 10px;
+      background: #f8f8f8;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    .rs-frame img {
+      width: 100%;
+      height: auto;
+      cursor: zoom-in;
+    }
+
+    .rs-figure figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.6;
+    }
+
+    .finding {
+      margin-top: 18px;
+      padding: 14px 18px;
+      border-left: 3px solid var(--accent-2);
+      border-radius: 0 8px 8px 0;
+      background: var(--surface-2);
+    }
+
+    .finding b {
+      color: var(--ink);
+    }
+
+    .result-label {
+      margin: 22px 0 10px;
+      color: var(--muted);
+      font-size: .84rem;
+      font-weight: 680;
+    }
+
+    .result-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .result-cell {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .result-cell span {
+      display: block;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .result-cell strong {
+      display: block;
+      margin-top: 2px;
+      font-size: 1.3rem;
+      line-height: 1.3;
+    }
+
+    .result-cell small {
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .result-cell.own {
+      border: 2px solid var(--accent);
+    }
+
+    .caveat {
+      margin-top: 16px;
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .caveat .rq-label {
+      color: var(--accent-2);
+    }
+
+    .caveat ul {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .rs-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0;
+    }
+
+    .rs-summary > div {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .rs-summary dt {
+      color: var(--accent-2);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .rs-summary dd {
+      margin: 4px 0 0;
+      font-size: .9rem;
+      line-height: 1.65;
+    }
+
+    .status {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 0 8px;
+      border-radius: 4px;
+      font-size: .74rem;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .status.partial {
+      color: var(--accent);
+      background: rgba(29, 118, 111, .1);
+    }
+
+    .status.open {
+      color: var(--accent-2);
+      background: rgba(184, 74, 50, .1);
+    }
+
+    .rs-next {
+      color: var(--muted);
+    }
+
+    .scroll-hint {
+      display: none;
+    }
+
+    .rs-frame:focus-visible,
+    .zoom-btn:focus-visible,
+    .lb-close:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .zoom-btn {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 0;
+      background: none;
+      font: inherit;
+      cursor: zoom-in;
+    }
+
+    .lb-close {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, .4);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(0, 0, 0, .4);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .rs-refs {
+      margin-top: 22px !important;
+      color: var(--muted) !important;
+      font-size: .82rem;
+    }
+
+    .rs-refs a {
+      color: var(--accent);
+    }
+
+    .project.no-media {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .nda-note {
+      margin-top: 14px !important;
+      color: var(--muted) !important;
+      font-size: .84rem;
+    }
+
+    @media (max-width: 860px) {
+      .result-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .rs-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .research-main {
+        padding: 24px 18px;
+      }
+
+      .rs-frame.scroll img {
+        min-width: 640px;
+      }
+
+      .rs-frame.scroll.wide img {
+        min-width: 920px;
+      }
+
+      .scroll-hint {
+        display: inline;
+        margin-right: .4em;
+        color: var(--accent);
+        font-weight: 700;
+      }
+    }
+
     @media (max-width: 860px) {
       .nav-inner {
         width: min(100% - 28px, 1120px);
@@ -649,6 +968,20 @@
       .research-question {
         background: rgba(108, 199, 185, .1);
       }
+
+      .badge.own,
+      .status.partial {
+        border-color: rgba(108, 199, 185, .4);
+        background: rgba(108, 199, 185, .12);
+      }
+
+      .status.open {
+        background: rgba(226, 138, 105, .14);
+      }
+
+      .rs-frame {
+        background: #f3f3f1;
+      }
     }
   </style>
 </head>
@@ -672,8 +1005,8 @@
         <div>
           <p class="hero-byline">Sota Minokawa <span class="hero-byline-jp">/ 箕川創太</span></p>
           <span class="eyebrow">Computer Vision Researcher &amp; AI Engineer</span>
-          <h1>Physics-Grounded Video Anomaly Detection</h1>
-          <p class="lead">東京理科大学 工学部情報工学科、谷口研究室所属。2027 年 4 月より東京大学大学院 情報理工学系研究科 創造情報学専攻に進学予定です。</p>
+          <h1>Temporal Scale in Video Anomaly Detection</h1>
+          <p class="lead">東京理科大学 工学部情報工学科、谷口研究室所属。製品の作動を撮影した動画から、正常データのみの学習で異常を検出する研究に取り組み、異常の種類と時間スケールの関係を仮説検証しています。2027 年 4 月より東京大学大学院 情報理工学系研究科 創造情報学専攻に進学予定です。</p>
           <div class="hero-actions">
             <a class="button" href="#research">研究を見る</a>
             <a class="button secondary" href="#works">開発実績を見る</a>
@@ -687,21 +1020,21 @@
               <div class="focus-kicker">Problem</div>
               <div>
                 <h3>外観だけでは判断できない異常</h3>
-                <p>見た目は正常でも、動き方や物体同士の相互作用が不自然な場合がある。</p>
+                <p>見た目は正常でも、回転・押下などの作動が不自然な製品動画を、正常データのみの学習で検出する。</p>
               </div>
             </div>
             <div class="focus-item">
-              <div class="focus-kicker">Why</div>
+              <div class="focus-kicker">Question</div>
               <div>
-                <h3>動き・相互作用・時間の理解が必要</h3>
-                <p>Motion / Interaction / Temporal State を理解して初めて異常が判断できる。</p>
+                <h3>有効な時間スケールは異常ごとに違うか</h3>
+                <p>予測するフレーム間隔（stride）と検出性能の関係を、カテゴリ別に検証している。</p>
               </div>
             </div>
             <div class="focus-item">
-              <div class="focus-kicker">Vision</div>
+              <div class="focus-kicker">Approach</div>
               <div>
-                <h3>物理的に不自然な挙動を検出する</h3>
-                <p>動画から動的・物理的な状態を理解し、異常を検出できるモデルを目指している。</p>
+                <h3>再現 → 切り分け → 仮説検証</h3>
+                <p>既存手法の再現から交絡要因を切り分け、仮説にもとづいて手法を試作し、その限界まで評価する。</p>
               </div>
             </div>
           </div>
@@ -716,39 +1049,134 @@
             <span class="eyebrow">Research</span>
             <h2>研究テーマ</h2>
           </div>
-          <p>Phys-AD を対象に、見た目は正常でも動き方や相互作用が不自然な「動的・物理的な異常」の理解と検出に取り組んでいる。</p>
+          <p>見た目は正常でも作動が異常な製品を、正常動画のみの学習で検出する研究。予測するフレーム間隔（時間スケール）が検出性能をどう左右するかを、仮説を立てて検証している。</p>
         </div>
 
         <article class="research-main">
-          <div class="meta">卒業研究 | 谷口研究室 | 2026</div>
-          <h3>Physics-Grounded Video Anomaly Detection</h3>
+          <div class="meta">卒業研究 | 谷口研究室 | 2026 | 進行中</div>
+          <h3>Temporal Scale in Video Anomaly Detection</h3>
+          <p class="rs-subtitle">製品作動動画の異常検知における時間スケールの役割</p>
 
           <div class="block-label">Problem</div>
-          <p>Phys-AD が対象とするのは、外観だけでは判断できない異常である。物体の見た目が正常でも、動き方やタイミング、物体同士の相互作用、動画全体としての状態遷移が不自然な場合があり、Motion・Interaction・Temporal State を理解して初めて異常だと判断できる。</p>
-
-          <div class="method-figure" aria-label="研究の考え方の模式図">
-            <div class="mf-stage"><span class="mf-stage-title">Video</span></div>
-            <div class="mf-arrow">→</div>
-            <div class="mf-stage"><span class="mf-stage-title">Motion / Interaction / State</span></div>
-            <div class="mf-arrow">→</div>
-            <div class="mf-stage"><span class="mf-stage-title">Dynamics Understanding</span></div>
-            <div class="mf-arrow">→</div>
-            <div class="mf-stage"><span class="mf-stage-title">Anomaly Detection</span></div>
-          </div>
+          <p><a href="https://guyao2023.github.io/Phys-AD/" target="_blank" rel="noopener">Phys-AD（CVPR 2025）</a>は、製品を動作させた 22 カテゴリの動画データセットで、外観は正常でも作動が不自然な異常を、正常動画のみの学習で検出することが求められる。本研究は、過去フレームから未来フレームを予測し、その予測誤差を異常スコアとする手法を基盤にしている。</p>
 
           <div class="research-question">
             <div class="rq-label">Research Question</div>
-            <p>How can machines understand whether objects are behaving as expected, rather than merely looking normal?</p>
+            <p>異常の種類によって、有効な時間スケール（予測するフレーム間隔 = stride）は変わるのか？</p>
+            <p class="rq-sub">Does the effective temporal scale depend on the type of anomaly?</p>
           </div>
 
-          <div class="block-label">Direction</div>
-          <p>動画から物体の動き・相互作用・時間的状態をどのように表現し、物理的な異常の判断につなげるかを検討している。</p>
+          <dl class="rs-summary" aria-label="研究の要点">
+            <div>
+              <dt>本人の貢献</dt>
+              <dd>既存手法の再現と交絡要因の切り分け、仮説・検証計画の設計、stride 感度の実験、TDBAD の着想・実装・評価</dd>
+            </div>
+            <div>
+              <dt>主な結果</dt>
+              <dd>最適な stride はカテゴリによって大きく異なった（H1 と整合）。TDBAD は同条件の固定 stride 5 に対し +0.85pt（探索的な結果）</dd>
+            </div>
+            <div>
+              <dt>限界</dt>
+              <dd>H2（相補性）は未検証。設定の一部をテスト結果を見たあとに決めており、他手法との公平な比較は未実施</dd>
+            </div>
+          </dl>
+
+          <section class="rs-step" aria-labelledby="rs-step-1">
+            <div class="rs-step-head">
+              <span class="rs-num">01</span>
+              <h4 id="rs-step-1">出発点：既存手法の再現で見えた問題</h4>
+              <span class="badge repro">研究室の既存手法の再現</span>
+            </div>
+            <p>研究室の先行研究の手法 Multi-Mah（複数の stride で学習した MNAD の異常スコアを統合する手法）を、Phys-AD の全テストデータで再現し、22 カテゴリ平均 AUROC 87.74% を確認した。しかし、この性能が「stride を変えた効果」「複数モデルのアンサンブル」「スコア統合」のどれによるものかは切り分けられていなかった。ここが自身の研究の出発点である。</p>
+            <p class="nda-note">87.74% は研究室の既存手法を再現した値であり、自身の提案手法の成果ではありません。</p>
+          </section>
+
+          <section class="rs-step" aria-labelledby="rs-step-2">
+            <div class="rs-step-head">
+              <span class="rs-num">02</span>
+              <h4 id="rs-step-2">仮説と検証計画</h4>
+              <span class="badge own">自身の研究設計</span>
+            </div>
+            <div class="hypotheses">
+              <div><b>H1</b><span>異常の種類によって、有効な時間スケールは異なる。<em class="status partial">結果と整合・検証継続中（03）</em></span></div>
+              <div><b>H2</b><span>異なる時間スケールの異常スコアは相補的である。<em class="status open">未検証（04 は H2 に向けた試作）</em></span></div>
+            </div>
+            <p>検証の前に、仮説ごとに結果に応じた次の打ち手を決めた（図1）。</p>
+            <figure class="rs-figure narrow">
+              <div class="rs-frame"><img src="assets/fig-research-roadmap.png" alt="研究の検証ルート。Step 1 で H1（異常の種類によって有効な時間スケールは異なるか）を検証し、支持されれば Step 2 で H2（異なる時間スケールの情報は相補的か）を検証。相補性がなければ適切な時間スケールの選択、あれば複数タイムスケールの統合へ進む。" loading="lazy" decoding="async"></div>
+              <figcaption>図1　研究の検証ルート。出典：本人の研究室発表資料（2026/11/04）。</figcaption>
+            </figure>
+          </section>
+
+          <section class="rs-step" aria-labelledby="rs-step-3">
+            <div class="rs-step-head">
+              <span class="rs-num">03</span>
+              <h4 id="rs-step-3">H1 の検証：stride 感度の比較</h4>
+              <span class="badge own">自身の実験</span>
+            </div>
+            <p>MNAD の Memory モジュールの影響を除くため、予測誤差だけを異常スコアとする単純な Encoder–Decoder 型の予測モデルを構成し、stride 1〜10 を同じ条件で比較した。</p>
+            <figure class="rs-figure">
+              <div class="rs-frame scroll" tabindex="0" role="region" aria-label="図2 stride ごとの AUROC 表（横スクロール可）"><img src="assets/fig-temporal-stride.png" alt="stride 1〜10 ごとの動画単位 AUROC の表。gear と lock は stride による変動が 65pt 以上、liquid と car は中程度、clock と rolling_bearing は小さい。22 カテゴリ平均は stride 7 の 88.1% が最高。" loading="lazy" decoding="async"></div>
+              <figcaption><span class="scroll-hint">横にスクロールできます。</span>図2　stride ごとの動画単位 AUROC（%）。代表 6 カテゴリと 22 カテゴリ平均を抜粋。Δ はカテゴリ内の最大値と最小値の差。出典：本人の進捗報告資料（2026/11/10）。</figcaption>
+            </figure>
+            <div class="finding">
+              <p><b>結果：</b>22 カテゴリ平均の最高は stride 7 の 88.1% だったが、最適な stride はカテゴリによって大きく異なり、gear や lock では stride によって AUROC が 65pt 以上変動した。単一の stride では対応しきれない可能性を示しており、H1 と整合する。ただし学習 seed によるばらつきとの切り分けは継続中で、H1 の検証は完了していない。</p>
+            </div>
+            <p style="margin-top: 14px">考察の一例：lock の「詰まり」異常では、stride 1 だと停止した状態まで予測できて誤差が出にくい一方、より先を予測する stride 5 では正常な動作との差が誤差に現れた。少数事例の定性的な観察にもとづく解釈である。</p>
+          </section>
+
+          <section class="rs-step" aria-labelledby="rs-step-4">
+            <div class="rs-step-head">
+              <span class="rs-num">04</span>
+              <h4 id="rs-step-4">H2 に向けた試作：TDBAD</h4>
+              <span class="badge own">自身の着想・試作</span>
+            </div>
+            <p><b>Temporal Discrepancy-Based Anomaly Detection.</b> stride ごとの異常スコアが大きく食い違うときは、一部の時間スケールだけが異常を捉えている可能性がある。そこで、stride 1〜6 のスコアを正常データを基準に同じ尺度へ揃え、スケール間の食い違いの大きさに応じて、フレームごとに参照するスコアを切り替える手法を試作した。</p>
+            <figure class="rs-figure">
+              <div class="rs-frame scroll wide" tabindex="0" role="region" aria-label="図3 TDBAD の処理の概要（横スクロール可）"><img src="assets/fig-tdbad-overview.png" alt="TDBAD の処理の概要。入力動画から stride 1〜6 で未来フレームを予測して異常スコアを得る、正常データを基準にスコアの尺度を揃える、フレームごとにスケール間の食い違いを測る、食い違いの大きさに応じて参照するスコアを切り替える、フレームスコアを動画スコアに集約する、の 5 段階。" loading="lazy" decoding="async"></div>
+              <figcaption><span class="scroll-hint">横にスクロールできます。</span>図3　TDBAD の処理の概要（本人作成）。正規化・食い違いの定義・切り替えの判定条件といった詳細は、現時点では掲載していません。</figcaption>
+            </figure>
+
+            <p class="result-label">同条件（同一の予測モデル、Phys-AD 22 カテゴリ平均 AUROC）でのスコア算出方法の比較。値は学習 seed 1 回分。</p>
+            <div class="result-row">
+              <div class="result-cell"><span>Mean fusion</span><strong>86.77%</strong><small>stride 1〜6 の平均</small></div>
+              <div class="result-cell"><span>Max fusion</span><strong>90.73%</strong><small>stride 1〜6 の最大</small></div>
+              <div class="result-cell"><span>Fixed stride 5</span><strong>90.73%</strong><small>単一 stride</small></div>
+              <div class="result-cell own"><span>TDBAD</span><strong>91.58%</strong><small>Fixed s5 比 +0.85pt</small></div>
+            </div>
+
+            <div class="caveat">
+              <div class="rq-label">結果の読み方</div>
+              <ul>
+                <li>改善幅は +0.85pt と小さく、lock（+6.7pt）や button（+7.0pt）など一部カテゴリに集中している。rubber_band のようにわずかに低下したカテゴリもある。学習 seed を変えた 3 回の評価でも、改善の向きは同じだった。</li>
+                <li>比較対象の固定 stride 5 と TDBAD の設定の一部は、テスト結果を見たあとに選んでいる。テストデータが使えない本来の設定ではそのまま適用できないため、現時点では探索的な結果である。</li>
+                <li>H2 の検証ではない。単純な統合（平均・最大）は固定 stride 5 を上回らず、相補性が成り立つ条件はまだ分かっていない。</li>
+                <li>図2 の 88.1% とは実験設定が異なるため、直接は比較しない。他手法との条件を揃えた比較はまだ行っておらず、既存手法に対する優位性は主張しない。</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="rs-step" aria-labelledby="rs-step-5">
+            <div class="rs-step-head">
+              <span class="rs-num">05</span>
+              <h4 id="rs-step-5">次の課題</h4>
+            </div>
+            <ul class="rs-next">
+              <li>学習 seed の影響を切り分け、H1 の検証を完了させる</li>
+              <li>H2（時間スケール間の相補性）を、手法の性能とは独立に検証する</li>
+              <li>手法の設定を、テスト情報を使わずに決める設計にする</li>
+              <li>他手法と比較条件を揃えて評価する</li>
+            </ul>
+          </section>
 
           <div class="tag-row">
             <span class="tag">video anomaly detection</span>
-            <span class="tag">physical dynamics</span>
-            <span class="tag">visual understanding</span>
+            <span class="tag">future frame prediction</span>
+            <span class="tag">temporal scale</span>
+            <span class="tag">hypothesis-driven experiments</span>
           </div>
+
+          <p class="rs-refs">Related work: <a href="https://openaccess.thecvf.com/content_CVPR_2020/html/Park_Learning_Memory-Guided_Normality_for_Anomaly_Detection_CVPR_2020_paper.html" target="_blank" rel="noopener">MNAD (CVPR 2020)</a> · <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Li_Towards_Visual_Discrimination_and_Reasoning_of_Real-World_Physical_Dynamics_Physics-Grounded_CVPR_2025_paper.html" target="_blank" rel="noopener">Phys-AD (CVPR 2025)</a></p>
         </article>
       </div>
     </section>
@@ -763,6 +1191,19 @@
         </div>
 
         <div class="projects">
+          <article class="project no-media">
+            <div class="project-content">
+              <div class="meta">2025 Sep - | CaseMatch 株式会社 | AI エンジニア</div>
+              <h3>人物検出モデルの比較評価</h3>
+              <p>AI 面接プロダクトで用いる人物検出を題材に、モデル候補の比較評価に取り組んでいます。</p>
+              <ul class="project-points">
+                <li>評価用データのアノテーションを行い、比較の土台となるデータを整備。</li>
+                <li>複数のモデル候補を、検出精度と処理速度の両面から評価。</li>
+              </ul>
+              <p class="nda-note">秘密保持のため、使用モデル・データ・評価結果の数値などの詳細は掲載していません。</p>
+            </div>
+          </article>
+
           <article class="project">
             <div class="project-content">
               <div class="meta">2025 Sep | Next.js / FastAPI / PostgreSQL / Render</div>
@@ -832,7 +1273,7 @@
             <div class="date">2025 Sep -</div>
             <div>
               <h3>CaseMatch 株式会社（旧 株式会社アズユニ） | AI エンジニア</h3>
-              <p>AI 面接・人材評価プロダクトのアルゴリズム開発・改善に従事。論文調査、実装、要件整理、API 仕様策定までを担当し、研究調査をプロダクト仕様へ落とし込む工程に関わっています。</p>
+              <p>AI 面接・人材評価プロダクトのアルゴリズム開発・改善に従事。論文調査、実装、要件整理、API 仕様策定までを担当し、研究調査をプロダクト仕様へ落とし込む工程に関わっています。人物検出モデルの比較評価については Works にまとめています。</p>
             </div>
           </article>
 
@@ -890,27 +1331,55 @@
     <div class="wrap">&copy; 2025-2026 Sota Minokawa</div>
   </footer>
 
-  <div id="lb" aria-label="画像プレビュー"><img id="lb-img" alt=""></div>
+  <div id="lb" role="dialog" aria-modal="true" aria-label="画像の拡大表示">
+    <button type="button" class="lb-close" aria-label="拡大表示を閉じる">×</button>
+    <img id="lb-img" alt="">
+  </div>
 
   <script>
     (function () {
       var lightbox = document.getElementById('lb');
       var lightboxImage = document.getElementById('lb-img');
+      var closeButton = lightbox.querySelector('.lb-close');
+      var lastFocus = null;
 
-      document.querySelectorAll('.project-media img, .gallery img').forEach(function (image) {
-        image.addEventListener('click', function () {
-          lightboxImage.src = image.src;
-          lightboxImage.alt = image.alt;
-          lightbox.setAttribute('open', '');
+      function openLightbox(image, trigger) {
+        lastFocus = trigger;
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        lightbox.setAttribute('open', '');
+        closeButton.focus();
+      }
+
+      function closeLightbox() {
+        if (!lightbox.hasAttribute('open')) return;
+        lightbox.removeAttribute('open');
+        if (lastFocus) lastFocus.focus();
+      }
+
+      // Wrap each zoomable image in a real button so it is keyboard-operable;
+      // the button's accessible name comes from the image alt text.
+      document.querySelectorAll('.project-media img, .gallery img, .rs-frame img').forEach(function (image) {
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'zoom-btn';
+        button.title = '拡大表示';
+        image.parentNode.insertBefore(button, image);
+        button.appendChild(image);
+        button.addEventListener('click', function () {
+          openLightbox(image, button);
         });
       });
 
-      lightbox.addEventListener('click', function () {
-        lightbox.removeAttribute('open');
-      });
+      lightbox.addEventListener('click', closeLightbox);
 
       document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') lightbox.removeAttribute('open');
+        if (!lightbox.hasAttribute('open')) return;
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'Tab') {
+          event.preventDefault();
+          closeButton.focus();
+        }
       });
     })();
   </script>
