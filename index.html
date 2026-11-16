@@ -1104,7 +1104,7 @@
             <p>検証の前に、仮説ごとに結果に応じた次の打ち手を決めた（図1）。</p>
             <figure class="rs-figure narrow">
               <div class="rs-frame"><img src="assets/fig-research-roadmap.png" alt="研究の検証ルート。Step 1 で H1（異常の種類によって有効な時間スケールは異なるか）を検証し、支持されれば Step 2 で H2（異なる時間スケールの情報は相補的か）を検証。相補性がなければ適切な時間スケールの選択、あれば複数タイムスケールの統合へ進む。" loading="lazy" decoding="async"></div>
-              <figcaption>図1　研究の検証ルート。出典：本人の研究室発表資料（2026/11/04）。</figcaption>
+              <figcaption>図1　研究の検証ルート（本人作成）。</figcaption>
             </figure>
           </section>
 
@@ -1117,7 +1117,7 @@
             <p>MNAD の Memory モジュールの影響を除くため、予測誤差だけを異常スコアとする単純な Encoder–Decoder 型の予測モデルを構成し、stride 1〜10 を同じ条件で比較した。</p>
             <figure class="rs-figure">
               <div class="rs-frame scroll" tabindex="0" role="region" aria-label="図2 stride ごとの AUROC 表（横スクロール可）"><img src="assets/fig-temporal-stride.png" alt="stride 1〜10 ごとの動画単位 AUROC の表。gear と lock は stride による変動が 65pt 以上、liquid と car は中程度、clock と rolling_bearing は小さい。22 カテゴリ平均は stride 7 の 88.1% が最高。" loading="lazy" decoding="async"></div>
-              <figcaption><span class="scroll-hint">横にスクロールできます。</span>図2　stride ごとの動画単位 AUROC（%）。代表 6 カテゴリと 22 カテゴリ平均を抜粋。Δ はカテゴリ内の最大値と最小値の差。出典：本人の進捗報告資料（2026/11/10）。</figcaption>
+              <figcaption><span class="scroll-hint">横にスクロールできます。</span>図2　stride ごとの動画単位 AUROC（%）（本人作成）。代表 6 カテゴリと 22 カテゴリ平均を抜粋。Δ はカテゴリ内の最大値と最小値の差。</figcaption>
             </figure>
             <div class="finding">
               <p><b>結果：</b>22 カテゴリ平均の最高は stride 7 の 88.1% だったが、最適な stride はカテゴリによって大きく異なり、gear や lock では stride によって AUROC が 65pt 以上変動した。単一の stride では対応しきれない可能性を示しており、H1 と整合する。ただし学習 seed によるばらつきとの切り分けは継続中で、H1 の検証は完了していない。</p>
