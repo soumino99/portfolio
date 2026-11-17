@@ -855,7 +855,21 @@
       }
 
       .rs-frame.scroll.wide img {
-        min-width: 920px;
+        min-width: 1100px;
+      }
+
+      /* wide research figures: show at readable size and let the viewer pan */
+      #lb[open].lb-wide {
+        display: block;
+        overflow: auto;
+        padding: 72px 12px 16px;
+      }
+
+      #lb.lb-wide img {
+        display: inline-block;
+        width: 1200px;
+        max-width: none;
+        max-height: none;
       }
 
       .scroll-hint {
@@ -1133,8 +1147,8 @@
             </div>
             <p><b>Temporal Discrepancy-Based Anomaly Detection.</b> stride ごとの異常スコアが大きく食い違うときは、一部の時間スケールだけが異常を捉えている可能性がある。そこで、stride 1〜6 のスコアを正常データを基準に同じ尺度へ揃え、スケール間の食い違いの大きさに応じて、フレームごとに参照するスコアを切り替える手法を試作した。</p>
             <figure class="rs-figure">
-              <div class="rs-frame scroll wide" tabindex="0" role="region" aria-label="図3 TDBAD の処理の概要（横スクロール可）"><img src="assets/fig-tdbad-overview.png" alt="TDBAD の処理の概要。入力動画から stride 1〜6 で未来フレームを予測して異常スコアを得る、正常データを基準にスコアの尺度を揃える、フレームごとにスケール間の食い違いを測る、食い違いの大きさに応じて参照するスコアを切り替える、フレームスコアを動画スコアに集約する、の 5 段階。" loading="lazy" decoding="async"></div>
-              <figcaption><span class="scroll-hint">横にスクロールできます。</span>図3　TDBAD の処理の概要（本人作成）。正規化・食い違いの定義・切り替えの判定条件といった詳細は、現時点では掲載していません。</figcaption>
+              <div class="rs-frame scroll wide" tabindex="0" role="region" aria-label="図3 TDBAD の処理フロー（横スクロール可）"><img src="assets/fig-tdbad-slide-public.png" alt="TDBAD の処理フロー。① 入力動画から stride 1、2、…、6 ごとに Encoder–Decoder で未来フレームを予測し、PSNR を得る。② stride ごとにスコアの尺度を揃えて正規化スコアにする。③ スケール間の食い違いの大きさを計算する。④ 正常データから決めた基準をもとに食い違いが大きいかを判定し、大きければ複数スケールを反映したスコア、そうでなければ通常のスコアを選ぶ。⑤ フレームスコアを動画単位に集約して最終スコアとする。" loading="lazy" decoding="async"></div>
+              <figcaption><span class="scroll-hint">横にスクロールできます。</span>図3　TDBAD の処理フロー（本人作成）。正規化の方法・食い違いの定義・判定の基準・スコアの選択規則といった詳細は抽象化して掲載しています。</figcaption>
             </figure>
 
             <p class="result-label">同条件（同一の予測モデル、Phys-AD 22 カテゴリ平均 AUROC）でのスコア算出方法の比較。値は学習 seed 1 回分。</p>
@@ -1347,6 +1361,9 @@
         lastFocus = trigger;
         lightboxImage.src = image.src;
         lightboxImage.alt = image.alt;
+        lightbox.classList.toggle('lb-wide', !!image.closest('.rs-frame.scroll'));
+        lightbox.scrollTop = 0;
+        lightbox.scrollLeft = 0;
         lightbox.setAttribute('open', '');
         closeButton.focus();
       }
