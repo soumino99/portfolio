@@ -202,8 +202,10 @@
     .hyp b { display: inline-block; width: 2.4em; color: var(--accent); }
 
     .rs-figure { margin: 28px 0; }
-    .rs-figure.narrow { max-width: 760px; }
 
+    /* every figure gets the same full-width plate; the plate colour equals the
+       figures' own background (#f8f8f8), so a figure drawn at a smaller scale
+       (figure 1 has much larger type) can sit centred without a visible seam */
     .rs-frame {
       padding: 10px;
       background: #f8f8f8;
@@ -213,6 +215,7 @@
     }
 
     .rs-frame img { width: 100%; height: auto; }
+    .rs-frame.fit-820 .zoom-btn { max-width: 820px; margin: 0 auto; }
 
     .rs-figure figcaption {
       margin-top: 8px;
@@ -270,31 +273,34 @@
     .work p { margin-top: 12px; color: var(--text); }
     .work .meta { margin-top: 0; }
 
+    /* Screenshots are shown as content-aware crops (assets/thumbs/); the
+       zoom button opens the uncropped original (data-full). */
     .work-media img {
       width: 100%;
+      height: auto;
       border: 1px solid var(--line);
       border-radius: 8px;
+      object-fit: cover;
+      object-position: top;
     }
+
+    /* main screenshot: one 16:10 frame for every work */
+    .work-media > .zoom-btn > img { aspect-ratio: 16 / 10; }
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      margin-top: 8px;
+      gap: 12px;
+      margin-top: 12px;
     }
 
-    .gallery img {
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      object-position: top;
-      border-radius: 6px;
-    }
+    .gallery img { aspect-ratio: 4 / 3; border-radius: 6px; }
 
-    /* main screenshot: same frame for every work, regardless of the source aspect */
-    .work-media > .zoom-btn > img {
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      object-position: top;
+    .gallery figcaption {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: .78rem;
+      line-height: 1.5;
     }
 
     .work.small { grid-template-columns: minmax(0, 1fr); }
@@ -404,15 +410,19 @@
       .research-question { padding: 16px 18px; }
       .result-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .result-cell:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      /* phones/tablets: keep figure text at ~12px and scroll instead of shrinking */
       .rs-frame.scroll img { min-width: 640px; }
+      .rs-frame.scroll.table img { min-width: 880px; }
       .rs-frame.scroll.wide img { min-width: 1100px; }
+      .rs-frame.fit-820 .zoom-btn { max-width: none; }
+      .gallery { gap: 8px; }
       .scroll-hint { display: inline; margin-right: .4em; color: var(--accent); font-weight: 700; }
       .work { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 32px 0; }
       .exp { grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 18px 0; }
 
       /* wide research figures: show at readable size and let the viewer pan */
       #lb[open].lb-wide { display: block; overflow: auto; padding: 72px 12px 16px; }
-      #lb.lb-wide img { display: inline-block; width: 1200px; max-width: none; max-height: none; }
+      #lb.lb-wide img { display: inline-block; width: var(--lb-w, 1200px); max-width: none; max-height: none; }
     }
 
     @media (prefers-color-scheme: dark) {
@@ -428,7 +438,6 @@
 
       .site-nav { background: rgba(17, 20, 18, .86); }
       .research-question { background: rgba(108, 199, 185, .1); }
-      .rs-frame { background: #f3f3f1; }
     }
   </style>
 </head>
@@ -491,9 +500,9 @@
             <li><b>H1</b>異常の種類によって、有効な時間スケールは異なる。</li>
             <li><b>H2</b>異なる時間スケールの異常スコアは相補的である。</li>
           </ul>
-          <figure class="rs-figure narrow">
-            <div class="rs-frame"><img src="assets/fig-research-roadmap.png" alt="研究の検証ルート。Step 1 で H1（異常の種類によって有効な時間スケールは異なるか）を検証し、支持されれば Step 2 で H2（異なる時間スケールの情報は相補的か）を検証。相補性がなければ適切な時間スケールの選択、あれば複数タイムスケールの統合へ進む。" loading="lazy" decoding="async"></div>
-            <figcaption>図1　検証ルート。結果に応じた次の打ち手を、検証の前に決めておいた。</figcaption>
+          <figure class="rs-figure">
+            <div class="rs-frame scroll fit-820" tabindex="0" role="region" aria-label="図1 検証ルート（横スクロール可）"><img src="assets/fig-research-roadmap.png" width="1600" height="841" alt="研究の検証ルート。Step 1 で H1（異常の種類によって有効な時間スケールは異なるか）を検証し、支持されれば Step 2 で H2（異なる時間スケールの情報は相補的か）を検証。相補性がなければ適切な時間スケールの選択、あれば複数タイムスケールの統合へ進む。" loading="lazy" decoding="async"></div>
+            <figcaption><span class="scroll-hint">横にスクロールできます。</span>図1　検証ルート。結果に応じた次の打ち手を、検証の前に決めておいた。</figcaption>
           </figure>
         </section>
 
@@ -501,7 +510,7 @@
           <h4 id="rs-step-3"><span class="rs-num">03</span>H1：stride 感度の比較</h4>
           <p>Memory モジュールの影響を除くため、予測誤差だけを異常スコアとする単純な Encoder–Decoder を構成し、stride 1〜10 を同じ条件で比較した。</p>
           <figure class="rs-figure">
-            <div class="rs-frame scroll" tabindex="0" role="region" aria-label="図2 stride ごとの AUROC 表（横スクロール可）"><img src="assets/fig-temporal-stride.png" alt="stride 1〜10 ごとの動画単位 AUROC の表。gear と lock は stride による変動が 65pt 以上、liquid と car は中程度、clock と rolling_bearing は小さい。22 カテゴリ平均は stride 7 の 88.1% が最高。" loading="lazy" decoding="async"></div>
+            <div class="rs-frame scroll table" tabindex="0" role="region" aria-label="図2 stride ごとの AUROC 表（横スクロール可）"><img src="assets/fig-temporal-stride.png" width="1600" height="470" alt="stride 1〜10 ごとの動画単位 AUROC の表。gear と lock は stride による変動が 65pt 以上、liquid と car は中程度、clock と rolling_bearing は小さい。22 カテゴリ平均は stride 7 の 88.1% が最高。" loading="lazy" decoding="async"></div>
             <figcaption><span class="scroll-hint">横にスクロールできます。</span>図2　stride 別の動画単位 AUROC（%）。代表 6 カテゴリと 22 カテゴリ平均。Δ は最大値と最小値の差。</figcaption>
           </figure>
           <p><strong>平均では stride 7 の 88.1% が最高だったが、最適な stride はカテゴリごとに大きく異なり、gear や lock では AUROC が 65pt 以上変動した。</strong>H1 と整合する結果である。たとえば lock の「詰まり」は、stride 1 では停止した状態まで予測できて誤差が出にくい一方、stride 5 では正常な動作との差が誤差に現れた。ただし、学習 seed によるばらつきとの切り分けは終わっておらず、H1 の検証は継続中である。</p>
@@ -511,7 +520,7 @@
           <h4 id="rs-step-4"><span class="rs-num">04</span>H2 に向けた試作：TDBAD</h4>
           <p><b lang="en">Temporal Discrepancy-Based Anomaly Detection.</b> stride 間でスコアが大きく食い違うフレームでは、一部の時間スケールだけが異常を捉えている可能性がある。そこで、stride 1〜6 のスコアを正常データを基準に同じ尺度へ揃え、食い違いの大きさに応じてフレームごとに参照するスコアを切り替える手法を考案・実装した。</p>
           <figure class="rs-figure">
-            <div class="rs-frame scroll wide" tabindex="0" role="region" aria-label="図3 TDBAD の処理フロー（横スクロール可）"><img src="assets/fig-tdbad-slide-public.png" alt="TDBAD の処理フロー。① 入力動画から stride 1、2、…、6 ごとに Encoder–Decoder で未来フレームを予測し、PSNR を得る。② stride ごとにスコアの尺度を揃えて正規化スコアにする。③ スケール間の食い違いの大きさを計算する。④ 正常データから決めた基準をもとに食い違いが大きいかを判定し、大きければ複数スケールを反映したスコア、そうでなければ通常のスコアを選ぶ。⑤ フレームスコアを動画単位に集約して最終スコアとする。" loading="lazy" decoding="async"></div>
+            <div class="rs-frame scroll wide" tabindex="0" role="region" aria-label="図3 TDBAD の処理フロー（横スクロール可）"><img src="assets/fig-tdbad-slide-public.png" width="1600" height="736" alt="TDBAD の処理フロー。① 入力動画から stride 1、2、…、6 ごとに Encoder–Decoder で未来フレームを予測し、PSNR を得る。② stride ごとにスコアの尺度を揃えて正規化スコアにする。③ スケール間の食い違いの大きさを計算する。④ 正常データから決めた基準をもとに食い違いが大きいかを判定し、大きければ複数スケールを反映したスコア、そうでなければ通常のスコアを選ぶ。⑤ フレームスコアを動画単位に集約して最終スコアとする。" loading="lazy" decoding="async"></div>
             <figcaption><span class="scroll-hint">横にスクロールできます。</span>図3　TDBAD の処理フロー。</figcaption>
           </figure>
 
@@ -550,11 +559,11 @@
             <p>投票した人だけが集計結果とシミュレーションを見られる設計にして、参加を促した。</p>
           </div>
           <div class="work-media">
-            <img src="assets/lab-vote-app_LP.png" alt="lab-vote-app のランディング画面" loading="lazy" decoding="async">
+            <img src="assets/thumbs/lab-vote-app_LP.png" data-full="assets/lab-vote-app_LP.png" width="1300" height="812" alt="lab-vote-app のランディング画面" loading="lazy" decoding="async">
             <div class="gallery" aria-label="lab-vote-app の画面">
-              <img src="assets/lab-vote-app_vote.png" alt="lab-vote-app 投票画面" loading="lazy" decoding="async">
-              <img src="assets/lab-vote-app_stats.png" alt="lab-vote-app 集計画面" loading="lazy" decoding="async">
-              <img src="assets/lab-vote-app_simulation.png" alt="lab-vote-app シミュレーション画面" loading="lazy" decoding="async">
+              <figure><img src="assets/thumbs/lab-vote-app_vote.png" data-full="assets/lab-vote-app_vote.png" width="468" height="351" alt="lab-vote-app 投票画面" loading="lazy" decoding="async"><figcaption>投票</figcaption></figure>
+              <figure><img src="assets/thumbs/lab-vote-app_stats.png" data-full="assets/lab-vote-app_stats.png" width="740" height="555" alt="lab-vote-app 集計画面" loading="lazy" decoding="async"><figcaption>集計</figcaption></figure>
+              <figure><img src="assets/thumbs/lab-vote-app_simulation.png" data-full="assets/lab-vote-app_simulation.png" width="412" height="309" alt="lab-vote-app シミュレーション画面" loading="lazy" decoding="async"><figcaption>シミュレーション</figcaption></figure>
             </div>
           </div>
         </article>
@@ -566,7 +575,7 @@
             <p>学内の悩みを、立場や交友関係に縛られず匿名で相談できる投稿アプリ。チームでニーズを整理して問題設定に落とし込み、UniChat をベースに匿名投稿・コメント・リアクション・チャンネル機能を実装した。</p>
           </div>
           <div class="work-media">
-            <img src="assets/ConnectU.png" alt="ConnectU のスクリーンショット" loading="lazy" decoding="async">
+            <img src="assets/thumbs/ConnectU.png" data-full="assets/ConnectU.png" width="900" height="562" alt="ConnectU のタイムライン画面" loading="lazy" decoding="async">
           </div>
         </article>
 
@@ -648,9 +657,13 @@
 
       function openLightbox(image, trigger) {
         lastFocus = trigger;
-        lightboxImage.src = image.src;
+        // list thumbnails are crops; always enlarge the uncropped original
+        lightboxImage.src = image.dataset.full || image.src;
         lightboxImage.alt = image.alt;
-        lightbox.classList.toggle('lb-wide', !!image.closest('.rs-frame.scroll'));
+        var wide = !!image.closest('.rs-frame.scroll');
+        lightbox.classList.toggle('lb-wide', wide);
+        // pannable size on small screens: 1.25x the inline figure, at most 1200px
+        lightboxImage.style.setProperty('--lb-w', wide ? Math.min(1200, Math.round(image.getBoundingClientRect().width * 1.25)) + 'px' : '');
         lightbox.scrollTop = 0;
         lightbox.scrollLeft = 0;
         lightbox.setAttribute('open', '');
