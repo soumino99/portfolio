@@ -468,9 +468,9 @@
           <p>Memory モジュールの影響を除くため、予測誤差だけを異常スコアとする単純な Encoder–Decoder を構成し、stride 1〜10 を同じ条件で比較した。</p>
           <figure class="rs-figure">
             <div class="rs-frame zoom-gallery"><a class="zoom-link" href="assets/fig-temporal-stride.png" data-pswp-width="1600" data-pswp-height="470"><img src="assets/fig-temporal-stride.png" width="1600" height="470" alt="stride 1〜10 ごとの動画単位 AUROC の表。gear と lock は stride による変動が 65pt 以上、liquid と car は中程度、clock と rolling_bearing は小さい。22 カテゴリ平均は stride 7 の 88.1% が最高。" loading="lazy" decoding="async"></a></div>
-            <figcaption><span class="tap-hint">タップで拡大できます。</span>図2　stride 別の動画単位 AUROC（%）。代表 6 カテゴリと 22 カテゴリ平均。Δ は最大値と最小値の差。</figcaption>
+            <figcaption><span class="tap-hint">タップで拡大できます。</span>図2　stride 別の動画単位 AUROC（%）。学習 seed 1 回分（seed 2020）の結果。代表 6 カテゴリと 22 カテゴリ平均。Δ は最大値と最小値の差。</figcaption>
           </figure>
-          <p><strong>平均では stride 7 の 88.1% が最高だったが、最適な stride はカテゴリごとに大きく異なり、gear や lock では AUROC が 65pt 以上変動した。</strong>H1 と整合する結果である。たとえば lock の「詰まり」は、stride 1 では停止した状態まで予測できて誤差が出にくい一方、stride 5 では正常な動作との差が誤差に現れた。ただし、学習 seed によるばらつきとの切り分けは終わっておらず、H1 の検証は継続中である。</p>
+          <p><strong>この図（学習 seed 1 回分）では平均で stride 7 の 88.1% が最高だったが、最適な stride はカテゴリごとに大きく異なり、lock や gear では AUROC が大きく変動した（この図では 65pt 以上）。</strong>H1 と整合する結果である。たとえば lock の「詰まり」は、stride 1 では停止した状態まで予測できて誤差が出にくい一方、stride 5 では正常な動作との差が誤差に現れた。ただし、stride 1〜6 を学習 seed を変えて 3 回比べると、平均で最も高い stride の値や gear の変動幅は seed によって変わった。学習 seed によるばらつきとの切り分けは終わっておらず、H1 の検証は継続中である。</p>
         </section>
 
         <section class="rs-step" aria-labelledby="rs-step-4">
@@ -481,20 +481,20 @@
             <figcaption><span class="tap-hint">タップで拡大できます。</span>図3　TDBAD の処理フロー。</figcaption>
           </figure>
 
-          <p class="result-label">スコア算出方法の比較（同一の予測モデル、22 カテゴリ平均 AUROC、学習 seed 1 回分。図2 とは学習設定が異なる）</p>
+          <p class="result-label">スコア算出方法の比較（同一の予測モデル、22 カテゴリ平均 AUROC、学習 seed 1 回分（seed 2020）。図2 とは学習設定が異なる）</p>
           <div class="result-row">
             <div class="result-cell"><span>Mean（stride 1〜6）</span><strong>86.77%</strong></div>
             <div class="result-cell"><span>Max（stride 1〜6）</span><strong>90.73%</strong></div>
             <div class="result-cell"><span>Fixed stride 5</span><strong>90.73%</strong></div>
             <div class="result-cell own"><span>TDBAD</span><strong>91.58%</strong></div>
           </div>
-          <p>固定 stride 5 に対して +0.85pt。改善は lock（+6.7pt）や button（+7.0pt）など一部のカテゴリに集中しており、学習 seed を変えた 3 回の評価でも同じ向きだった。</p>
+          <p>固定 stride 5 に対して +0.85pt。改善は lock（+6.7pt）や button（+7.0pt）など一部のカテゴリに集中しており、学習 seed を変えた 3 回の評価でも同じ向きだった。一方、Max との差は seed によってばらつき、3 回中 1 回は Max の方がわずかに高かった。</p>
 
           <div class="caveat">
             <span class="label">解釈上の注意</span>
             <ul>
               <li>stride 5 など設定の一部はテスト結果を見て選んでおり、探索的な結果である。</li>
-              <li>単純な平均・最大による統合は固定 stride 5 を上回っておらず、H2（相補性）はまだ検証できていない。</li>
+              <li>平均による統合は、学習 seed を変えた 3 回とも固定 stride 5 を下回った。最大値による統合は、この表では固定 stride 5 と同程度だったが、他の 2 回では上回った。いずれにしても H2（相補性）はまだ検証できていない。</li>
               <li>他手法と条件を揃えた比較は未実施で、既存手法に対する優位性は主張しない。</li>
             </ul>
           </div>
